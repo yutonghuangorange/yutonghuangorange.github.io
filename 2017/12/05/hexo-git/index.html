@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yutong &amp; Orange">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="This article is about how to create a Hexo project and deploy it to your Github Page as your personal blog. I figured it out tonight following the instruction in this article HERE. Create Your Hexo Pr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy Hexo Blog to Git">
+<meta property="og:url" content="http://yoursite.com/2017/12/05/hexo-git/index.html">
 <meta property="og:site_name" content="Yutong &amp; Orange">
+<meta property="og:description" content="This article is about how to create a Hexo project and deploy it to your Github Page as your personal blog. I figured it out tonight following the instruction in this article HERE. Create Your Hexo Pr">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-06T05:08:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yutong &amp; Orange">
+<meta name="twitter:title" content="Deploy Hexo Blog to Git">
+<meta name="twitter:description" content="This article is about how to create a Hexo project and deploy it to your Github Page as your personal blog. I figured it out tonight following the instruction in this article HERE. Create Your Hexo Pr">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/05/hexo-git/"/>
 
 
 
 
 
-  <title>Yutong & Orange</title>
+  <title>Deploy Hexo Blog to Git | Yutong & Orange</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/05/hexo-git/" itemprop="url">Deploy Hexo Blog to Git</a></h1>
+          <h1 class="post-title" itemprop="name headline">Deploy Hexo Blog to Git</h1>
         
 
         <div class="post-meta">
@@ -298,9 +299,7 @@
       
 
       
-        
-          
-            <p>This article is about how to create a <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> project and deploy it to your <a href="https://pages.github.com/" target="_blank" rel="noopener">Github Page</a> as your personal blog. I figured it out tonight following the instruction in this article <a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="noopener">HERE</a>.</p>
+        <p>This article is about how to create a <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> project and deploy it to your <a href="https://pages.github.com/" target="_blank" rel="noopener">Github Page</a> as your personal blog. I figured it out tonight following the instruction in this article <a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="noopener">HERE</a>.</p>
 <h2 id="Create-Your-Hexo-Project"><a href="#Create-Your-Hexo-Project" class="headerlink" title="Create Your Hexo Project"></a>Create Your Hexo Project</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>You can simply follow the instruction on their official web page at <a href="https://hexo.io/docs/index.html" target="_blank" rel="noopener">https://hexo.io/docs/index.html</a>. To install Hexo, you need <a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJS</a> and <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> installed as preferences. If you already have those installed, use the command line below to install Hexo. Then you are good to go. </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <h3 id="Create-A-Project"><a href="#Create-A-Project" class="headerlink" title="Create A Project"></a>Create A Project</h3><p>First, make a directory in your local where you want to put your blog project, then go to that folder in your terminal. Then you can initialize a Hexo project using the command line at:</p>
@@ -332,8 +331,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
 <p>If you see this, it means that you didn’t have a SSH key set up in your Git Hub account. You can follow the instructions <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank" rel="noopener">HERE</a> for a reference. After you set up the key, you should be able to deploy it to your repo properly.</p>
 
-          
-        
       
     </div>
     
@@ -350,12 +347,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -365,10 +362,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -376,6 +374,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -396,8 +398,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -441,6 +452,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-Your-Hexo-Project"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Create-Your-Hexo-Project" class="headerlink" title="Create Your Hexo Project"></a>Create Your Hexo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-A-Project"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#Create-A-Project" class="headerlink" title="Create A Project"></a>Create A Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-Server"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#Run-Server" class="headerlink" title="Run Server"></a>Run Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write-Post"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#Write-Post" class="headerlink" title="Write Post"></a>Write Post</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-GitHub-Page"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Create-GitHub-Page" class="headerlink" title="Create GitHub Page"></a>Create GitHub Page</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-A-Repository"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#Create-A-Repository" class="headerlink" title="Create A Repository"></a>Create A Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-One-Commit"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#Create-One-Commit" class="headerlink" title="Create One Commit"></a>Create One Commit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploy-Hexo-to-GitHub"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Deploy-Hexo-to-GitHub" class="headerlink" title="Deploy Hexo to GitHub"></a>Deploy Hexo to GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Principle-of-Deployment"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#The-Principle-of-Deployment" class="headerlink" title="The Principle of Deployment"></a>The Principle of Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Hexo-Deploy"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#Using-Hexo-Deploy" class="headerlink" title="Using Hexo Deploy"></a>Using Hexo Deploy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Configuration"><span class="nav-number">3.2.1.</span> <span class="nav-text"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Procedures"><span class="nav-number">3.2.2.</span> <span class="nav-text"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Errors"><span class="nav-number">3.2.3.</span> <span class="nav-text"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -574,6 +601,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
