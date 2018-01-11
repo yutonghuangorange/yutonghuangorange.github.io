@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CSS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="This series is the study note of the Advanced CSS couse. This article will introduce how CSS works behind the scene. Including how the mechanism resolves the conflicting CSS codes, and how the final C">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS - How CSS works [Study Notes]">
+<meta property="og:url" content="http://yoursite.com/2017/12/25/css - how css works [study notes]/index.html">
+<meta property="og:site_name" content="Yutong &amp; Orange">
+<meta property="og:description" content="This series is the study note of the Advanced CSS couse. This article will introduce how CSS works behind the scene. Including how the mechanism resolves the conflicting CSS codes, and how the final C">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/images/cssstudynotes/image1.png">
+<meta property="og:image" content="http://yoursite.com/images/cssstudynotes/image2.png">
+<meta property="og:image" content="http://yoursite.com/images/cssstudynotes/image3.png">
+<meta property="og:image" content="http://yoursite.com/images/cssstudynotes/image4.png">
+<meta property="og:updated_time" content="2018-01-02T03:22:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS - How CSS works [Study Notes]">
+<meta name="twitter:description" content="This series is the study note of the Advanced CSS couse. This article will introduce how CSS works behind the scene. Including how the mechanism resolves the conflicting CSS codes, and how the final C">
+<meta name="twitter:image" content="http://yoursite.com/images/cssstudynotes/image1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/25/css - how css works [study notes]/"/>
+
+
+
+
+
+  <title>CSS - How CSS works [Study Notes] | Yutong & Orange</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yutong & Orange</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/css - how css works [study notes]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS - How CSS works [Study Notes]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T21:43:23-05:00">
+                2017-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This series is the study note of the <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">Advanced CSS couse</a>. This article will introduce how CSS works behind the scene. Including how the mechanism resolves the conflicting CSS codes, and how the final CSS values are parsed.</p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Different-Entities"><a href="#Different-Entities" class="headerlink" title="Different Entities"></a>Different Entities</h2><p>There are three different entities affecting the CSS code. <strong>Author</strong>, <strong>User</strong> and <strong>Browser</strong>.<br>Author: the author of the original CSS code.<br>User: people who see the page on browser, can modify the CSS using front-end tools, such as Chrome developer tools.<br>Browser: The browser itself has its own oginal way of rendering the page using some CSS properties.</p>
+<h1 id="Resolve-Conflicts"><a href="#Resolve-Conflicts" class="headerlink" title="Resolve Conflicts"></a>Resolve Conflicts</h1><p><img src="/images/cssstudynotes/image1.png" alt="how CSS conflicts are resolved"><br>There are three steps to do to resolve the conflicts in CSS codes. </p>
+<h2 id="Importance"><a href="#Importance" class="headerlink" title="Importance"></a>Importance</h2><p>First, it will check the importance of the declaration. The importance basic means how the code has been marked as important. There are normal declaration, and the declaration with the <code>!important</code>, like <code>background-color: blue !important;</code>. Also as introduced in the previous section, there are three different entities who can affect the CSS codes. The importance of the declaration, from the least to the most are in the order of:</p>
+<ol>
+<li>Default browser declarations<br>The default browser declarations is just the foundation CSS code that the necessary for the browser to render the content properly. It can be easily overrided.</li>
+<li>User declaration<br>User’s normal declaration using the front-end tools will always override the browser’s default settings.</li>
+<li>Author declarations<br>User cannot override the properties that have valued defined by author’s code using the front-end tools. </li>
+<li>Author <code>!important</code> declarations</li>
+<li>User <code>!important</code> declarations<br>But if user add <code>!important</code> in the declaration, it gives the code the highest priority in importance.</li>
+</ol>
+<h2 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h2><p>If the conflicting declarations have the same importance, it will check the specificity of them. The more specific the declaration is, the higher priority will be given. From the least to the most specific declarations are in the order of:</p>
+<ol>
+<li>Elements, pseudo-elements<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>The declaration for the <code>background-color</code> here is for all the elements <strong>a</strong>. It has the least specifity.</p>
+<ol>
+<li>Classes, pseudo-classes, attribute<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class &#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Here the declaration is for all the classes with the class name as “class”.</p>
+<ol>
+<li>IDs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#id &#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line">Here is a declaration for the element with ID &quot;id&quot;.</span><br><span class="line">1. Inline styles</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><a class="class" id="id" style="background-color: green;">A</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If the CSS code has been written in the html code, it&apos;s the inline style and has the highest priority.</span><br><span class="line"></span><br><span class="line">### Example</span><br></pre></td></tr></table></figure></p>
+<p>.button {   //(inline:0, id:0, class:1, element:0)<br>    background-color: red;<br>}<br>nav#nav div.div .button {   //(inline:0, id:1, class:2, element:2)<br>    background-color: yellow;<br>}<br>a {   //(inline:0, id:0, class:0, element:1)<br>    background-color: blue;<br>}</p>
+<p>#nav a .button:hover {   //(inline:0, id:1, class:2, element:1)<br>    background-color: green;<br>}<br>```<br>In this case the second line will win the game!</p>
+<h2 id="Source-order"><a href="#Source-order" class="headerlink" title="Source order"></a>Source order</h2><p>If the conflicting declarations have same importance and specificity, the one in the latest section will be chosen and override the codes before. </p>
+<h1 id="Process-Values"><a href="#Process-Values" class="headerlink" title="Process Values"></a>Process Values</h1><p><img src="/images/cssstudynotes/image2.png" alt="how CSS conflicts are resolved"><br>This section will introduce how the values bare processed step by step by the browser.</p>
+<ol>
+<li>Declared value<br>The browser will first search for author declaration for the property, and get all the related values.</li>
+<li>Cascaded value<br>Then it will follow the rules introduced in the previous section, to get the actual value from the declaration. </li>
+<li>Specified value<br>This is the default value for the property if no author declarations found.</li>
+<li>Computed value<br>This step is for computing the relative value into actual values. </li>
+<li>Used value<br>This step is for the final calculation based on the layout. </li>
+<li>Actual value<br>This step will apply the restrictions of the browser and device into the values, then get teh final actual value.</li>
+</ol>
+<h2 id="How-to-turn-relative-values-into-absolute"><a href="#How-to-turn-relative-values-into-absolute" class="headerlink" title="How to turn relative values into absolute"></a>How to turn relative values into absolute</h2><p><img src="/images/cssstudynotes/image3.png" alt="how CSS conflicts are resolved"></p>
+<h2 id="Inhiritance"><a href="#Inhiritance" class="headerlink" title="Inhiritance"></a>Inhiritance</h2><p><img src="/images/cssstudynotes/image4.png" alt="how CSS conflicts are resolved"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/07/sketching - draw a eye & lines/" rel="next" title="Sketching - Draw an eye & Lines">
+                <i class="fa fa-chevron-left"></i> Sketching - Draw an eye & Lines
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yutong Huang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Basic-Knowledge"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Different-Entities"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Different-Entities" class="headerlink" title="Different Entities"></a>Different Entities</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Resolve-Conflicts"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Resolve-Conflicts" class="headerlink" title="Resolve Conflicts"></a>Resolve Conflicts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Importance"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#Importance" class="headerlink" title="Importance"></a>Importance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specificity"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source-order"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#Source-order" class="headerlink" title="Source order"></a>Source order</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Process-Values"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Process-Values" class="headerlink" title="Process Values"></a>Process Values</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-turn-relative-values-into-absolute"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#How-to-turn-relative-values-into-absolute" class="headerlink" title="How to turn relative values into absolute"></a>How to turn relative values into absolute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inhiritance"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#Inhiritance" class="headerlink" title="Inhiritance"></a>Inhiritance</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yutong Huang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

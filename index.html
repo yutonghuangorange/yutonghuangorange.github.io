@@ -229,6 +229,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/css - how css works [study notes]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/25/css - how css works [study notes]/" itemprop="url">CSS - How CSS works [Study Notes]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T21:43:23-05:00">
+                2017-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This series is the study note of the <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">Advanced CSS couse</a>. This article will introduce how CSS works behind the scene. Including how the mechanism resolves the conflicting CSS codes, and how the final CSS values are parsed.</p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Different-Entities"><a href="#Different-Entities" class="headerlink" title="Different Entities"></a>Different Entities</h2><p>There are three different entities affecting the CSS code. <strong>Author</strong>, <strong>User</strong> and <strong>Browser</strong>.<br>Author: the author of the original CSS code.<br>User: people who see the page on browser, can modify the CSS using front-end tools, such as Chrome developer tools.<br>Browser: The browser itself has its own oginal way of rendering the page using some CSS properties.</p>
+<h1 id="Resolve-Conflicts"><a href="#Resolve-Conflicts" class="headerlink" title="Resolve Conflicts"></a>Resolve Conflicts</h1><p><img src="/images/cssstudynotes/image1.png" alt="how CSS conflicts are resolved"><br>There are three steps to do to resolve the conflicts in CSS codes. </p>
+<h2 id="Importance"><a href="#Importance" class="headerlink" title="Importance"></a>Importance</h2><p>First, it will check the importance of the declaration. The importance basic means how the code has been marked as important. There are normal declaration, and the declaration with the <code>!important</code>, like <code>background-color: blue !important;</code>. Also as introduced in the previous section, there are three different entities who can affect the CSS codes. The importance of the declaration, from the least to the most are in the order of:</p>
+<ol>
+<li>Default browser declarations<br>The default browser declarations is just the foundation CSS code that the necessary for the browser to render the content properly. It can be easily overrided.</li>
+<li>User declaration<br>User’s normal declaration using the front-end tools will always override the browser’s default settings.</li>
+<li>Author declarations<br>User cannot override the properties that have valued defined by author’s code using the front-end tools. </li>
+<li>Author <code>!important</code> declarations</li>
+<li>User <code>!important</code> declarations<br>But if user add <code>!important</code> in the declaration, it gives the code the highest priority in importance.</li>
+</ol>
+<h2 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h2><p>If the conflicting declarations have the same importance, it will check the specificity of them. The more specific the declaration is, the higher priority will be given. From the least to the most specific declarations are in the order of:</p>
+<ol>
+<li>Elements, pseudo-elements<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>The declaration for the <code>background-color</code> here is for all the elements <strong>a</strong>. It has the least specifity.</p>
+<ol>
+<li>Classes, pseudo-classes, attribute<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class &#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Here the declaration is for all the classes with the class name as “class”.</p>
+<ol>
+<li>IDs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#id &#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line">Here is a declaration for the element with ID &quot;id&quot;.</span><br><span class="line">1. Inline styles</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><a class="class" id="id" style="background-color: green;">A</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If the CSS code has been written in the html code, it&apos;s the inline style and has the highest priority.</span><br><span class="line"></span><br><span class="line">### Example</span><br></pre></td></tr></table></figure></p>
+<p>.button {   //(inline:0, id:0, class:1, element:0)<br>    background-color: red;<br>}<br>nav#nav div.div .button {   //(inline:0, id:1, class:2, element:2)<br>    background-color: yellow;<br>}<br>a {   //(inline:0, id:0, class:0, element:1)<br>    background-color: blue;<br>}</p>
+<p>#nav a .button:hover {   //(inline:0, id:1, class:2, element:1)<br>    background-color: green;<br>}<br>```<br>In this case the second line will win the game!</p>
+<h2 id="Source-order"><a href="#Source-order" class="headerlink" title="Source order"></a>Source order</h2><p>If the conflicting declarations have same importance and specificity, the one in the latest section will be chosen and override the codes before. </p>
+<h1 id="Process-Values"><a href="#Process-Values" class="headerlink" title="Process Values"></a>Process Values</h1><p><img src="/images/cssstudynotes/image2.png" alt="how CSS conflicts are resolved"><br>This section will introduce how the values bare processed step by step by the browser.</p>
+<ol>
+<li>Declared value<br>The browser will first search for author declaration for the property, and get all the related values.</li>
+<li>Cascaded value<br>Then it will follow the rules introduced in the previous section, to get the actual value from the declaration. </li>
+<li>Specified value<br>This is the default value for the property if no author declarations found.</li>
+<li>Computed value<br>This step is for computing the relative value into actual values. </li>
+<li>Used value<br>This step is for the final calculation based on the layout. </li>
+<li>Actual value<br>This step will apply the restrictions of the browser and device into the values, then get teh final actual value.</li>
+</ol>
+<h2 id="How-to-turn-relative-values-into-absolute"><a href="#How-to-turn-relative-values-into-absolute" class="headerlink" title="How to turn relative values into absolute"></a>How to turn relative values into absolute</h2><p><img src="/images/cssstudynotes/image3.png" alt="how CSS conflicts are resolved"></p>
+<h2 id="Inhiritance"><a href="#Inhiritance" class="headerlink" title="Inhiritance"></a>Inhiritance</h2><p><img src="/images/cssstudynotes/image4.png" alt="how CSS conflicts are resolved"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/sketching - draw a eye & lines/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -552,7 +712,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -565,7 +725,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -604,7 +764,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
