@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="开篇以前这一系列的文章主要是以读书笔记的形式，记录学习《JavaScript高级程序设计》一书的学习心得和总结。对于阅读和学习本书的最初想法，来源于一次失败的国内IT公司前端岗位面试。准备面试和实际面试的过程中深刻的意识到了自己对前端知识了解的肤浅和松散。之前零散的记忆和学习也没有真正帮助到了解前端工作内容重心和核心技术。面试官推荐了这本书作为学习资料，并推荐了看书作为学习方法。由此将其确定为近期">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript高级程序设计》第一章笔记">
+<meta property="og:url" content="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第一章笔记/index.html">
+<meta property="og:site_name" content="Yutong &amp; Orange">
+<meta property="og:description" content="开篇以前这一系列的文章主要是以读书笔记的形式，记录学习《JavaScript高级程序设计》一书的学习心得和总结。对于阅读和学习本书的最初想法，来源于一次失败的国内IT公司前端岗位面试。准备面试和实际面试的过程中深刻的意识到了自己对前端知识了解的肤浅和松散。之前零散的记忆和学习也没有真正帮助到了解前端工作内容重心和核心技术。面试官推荐了这本书作为学习资料，并推荐了看书作为学习方法。由此将其确定为近期">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-15T03:54:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript高级程序设计》第一章笔记">
+<meta name="twitter:description" content="开篇以前这一系列的文章主要是以读书笔记的形式，记录学习《JavaScript高级程序设计》一书的学习心得和总结。对于阅读和学习本书的最初想法，来源于一次失败的国内IT公司前端岗位面试。准备面试和实际面试的过程中深刻的意识到了自己对前端知识了解的肤浅和松散。之前零散的记忆和学习也没有真正帮助到了解前端工作内容重心和核心技术。面试官推荐了这本书作为学习资料，并推荐了看书作为学习方法。由此将其确定为近期">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第一章笔记/"/>
+
+
+
+
+
+  <title>《JavaScript高级程序设计》第一章笔记 | Yutong & Orange</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yutong & Orange</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第一章笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《JavaScript高级程序设计》第一章笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-14T22:02:47-05:00">
+                2018-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="开篇以前"><a href="#开篇以前" class="headerlink" title="开篇以前"></a>开篇以前</h1><p>这一系列的文章主要是以读书笔记的形式，记录学习《JavaScript高级程序设计》一书的学习心得和总结。<br>对于阅读和学习本书的最初想法，来源于一次失败的国内IT公司前端岗位面试。准备面试和实际面试的过程中深刻的意识到了自己对前端知识了解的肤浅和松散。之前零散的记忆和学习也没有真正帮助到了解前端工作内容重心和核心技术。面试官推荐了这本书作为学习资料，并推荐了看书作为学习方法。由此将其确定为近期学习和准备面试的主要内容和方向。即使面试过程和结果都很不尽人意，仍然十分感谢面试官的指点。我想这对于我接下来的职业发展和个人提升，有非常重大的帮助和意义。<br>以此作为前端之路的起点。</p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>第一章主要介绍了JavaScript的历史，演化过程，以及一些重要概念入<strong>ECMAScript</strong>，<strong>DOM</strong>以及<strong>BOM</strong>。</p>
+<h2 id="JavaScript历史"><a href="#JavaScript历史" class="headerlink" title="JavaScript历史"></a>JavaScript历史</h2><p>最初在有JavaScript之前，人们并不能真正意义上的和前端有任何交互。即使是简单的提交表单（form）也需要在服务器端（server）端进行内容判定再等待结果返回。在拨号上网年代十分耗费时间。因此NetScape公司开始编写一种在客户端可以执行的语言来辅助功能的完成。起初命名为Mocha，之后改为ViewScript。在发表之前因Java的大热而定名JavaScript，蹭蹭热度哈哈哈。<br>JavaScript1.0是一个很大的成功，之后微软也为其开发的浏览器IE写了类似的语言名为JScript。两种语言都只能在各自的浏览器中运行，可想而知引发了一些麻烦。之后ECMA（European Computer Manufacturers Association)成立了一个，由各大浏览器所属公司的程序员组成的小组，对JavaScript的语法做出了标准化的规范，称之ECMA-262，而在其之上定义了一种脚本语言ECMAScript。<br>JavaScript的实现是基于三点，<strong>ECMAScript</strong>，<strong>DOM</strong>以及<strong>BOM</strong>。</p>
+<h2 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h2><p>ECMAScript并不基于浏览器，同时也没有关于输入输出的定义。简单来说我理解ECMAScript是一个实现了ECMA-262标准的，并不在于真的拿来写程序的这样一种语言。但是基于ECMAScript，可以实现具体的，可用的编程语言，JavaScript也只是其中的一种。同时，实现了ECMAScript的语言能够执行的环境也不只是浏览器，Adobe Flash也是其中之一。</p>
+<h3 id="ECMA-262规定的内容"><a href="#ECMA-262规定的内容" class="headerlink" title="ECMA-262规定的内容"></a>ECMA-262规定的内容</h3><ol>
+<li>语法（Syntax)</li>
+<li>类型（Type）</li>
+<li>语句（Statement）</li>
+<li>关键字（Keywords）</li>
+<li>保留字（Reserved words）</li>
+<li>操作符（Operators）</li>
+<li>对象（Objects）<h3 id="ECMAScript2016-amp-ECMAScript2016"><a href="#ECMAScript2016-amp-ECMAScript2016" class="headerlink" title="ECMAScript2016 &amp; ECMAScript2016"></a>ECMAScript2016 &amp; ECMAScript2016</h3>[TODO]ECMAScript2015，16新增特性<br><a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">http://kangax.github.io/compat-table/es6/</a><h3 id="ECMAScript的兼容"><a href="#ECMAScript的兼容" class="headerlink" title="ECMAScript的兼容"></a>ECMAScript的兼容</h3>一个语言要称实现了ECMAScript，需要达到以下几点要求：</li>
+<li>支持“ECMA-262”所定义的所有“类型，值，对象，属性，函数以及程序句法和语义”。</li>
+<li>支持Unicode。<br>但是实现ECMAScript的语言被允许做以下的操作：</li>
+<li>添加ECMA-262中没有定义的类以及类的新属性。</li>
+<li>修改或者扩展内置的程序正则表达式的语法。<br>由此，其实ECMAScript的实现是给予了充分的弹性和空间。<h2 id="DOM（Document-Object-Model）"><a href="#DOM（Document-Object-Model）" class="headerlink" title="DOM（Document Object Model）"></a>DOM（Document Object Model）</h2>DOM是一种针对XML，现用于HTML的API，其功能是把页面映射为多层节点结构。基于这样的树形结构，DOM提供的API可以实现对节点的，增删改操作。<br>DOM作为JavaScript的一部分，其实实际上，是在浏览器中实现ECMAScript的一个扩展。也有别的语言实现了自己的DOM。<h2 id="BOM（Browser-Object-Model）"><a href="#BOM（Browser-Object-Model）" class="headerlink" title="BOM（Browser Object Model）"></a>BOM（Browser Object Model）</h2>如果说DOM帮助程序员使用程序控制页面上的布局和节点，那么BOM就是帮助程序员用程序控制浏览器的部分功能，例如弹出窗口，缩放，提供分辨率信息等等。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/25/css - how css works [study notes]/" rel="next" title="CSS - How CSS works [Study Notes]">
+                <i class="fa fa-chevron-left"></i> CSS - How CSS works [Study Notes]
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/14/《JavaScript高级程序设计》第二章笔记/" rel="prev" title="《JavaScript高级程序设计》第二章笔记">
+                《JavaScript高级程序设计》第二章笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yutong Huang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开篇以前"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5F00;&#x7BC7;&#x4EE5;&#x524D;" class="headerlink" title="&#x5F00;&#x7BC7;&#x4EE5;&#x524D;"></a>&#x5F00;&#x7BC7;&#x4EE5;&#x524D;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript历史"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#JavaScript&#x5386;&#x53F2;" class="headerlink" title="JavaScript&#x5386;&#x53F2;"></a>JavaScript&#x5386;&#x53F2;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ECMAScript"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMA-262规定的内容"><span class="nav-number">2.2.1.</span> <span class="nav-text"><a href="#ECMA-262&#x89C4;&#x5B9A;&#x7684;&#x5185;&#x5BB9;" class="headerlink" title="ECMA-262&#x89C4;&#x5B9A;&#x7684;&#x5185;&#x5BB9;"></a>ECMA-262&#x89C4;&#x5B9A;&#x7684;&#x5185;&#x5BB9;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript2016-amp-ECMAScript2016"><span class="nav-number">2.2.2.</span> <span class="nav-text"><a href="#ECMAScript2016-amp-ECMAScript2016" class="headerlink" title="ECMAScript2016 &amp; ECMAScript2016"></a>ECMAScript2016 &amp; ECMAScript2016</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript的兼容"><span class="nav-number">2.2.3.</span> <span class="nav-text"><a href="#ECMAScript&#x7684;&#x517C;&#x5BB9;" class="headerlink" title="ECMAScript&#x7684;&#x517C;&#x5BB9;"></a>ECMAScript&#x7684;&#x517C;&#x5BB9;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM（Document-Object-Model）"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#DOM&#xFF08;Document-Object-Model&#xFF09;" class="headerlink" title="DOM&#xFF08;Document Object Model&#xFF09;"></a>DOM&#xFF08;Document Object Model&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM（Browser-Object-Model）"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="#BOM&#xFF08;Browser-Object-Model&#xFF09;" class="headerlink" title="BOM&#xFF08;Browser Object Model&#xFF09;"></a>BOM&#xFF08;Browser Object Model&#xFF09;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yutong Huang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

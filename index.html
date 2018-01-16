@@ -229,6 +229,288 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第二章笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/14/《JavaScript高级程序设计》第二章笔记/" itemprop="url">《JavaScript高级程序设计》第二章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-14T22:59:18-05:00">
+                2018-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>第二章主要介绍了如何在HTML文件中引入JavaScript代码。</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a><script></h1><p><code>&lt;script&gt;</code>是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。</p>
+<ol>
+<li><p><code>async</code>：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个<code>async</code>的文件被解析的顺序是不被保证的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>charset</code>：optional。表示src加载的脚本使用的字符集，经常被忽略，不常用。</p>
+</li>
+<li><p><code>defer</code>：optional。表示脚本加载后会等到页面加载完再运行。只针对external src。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>language</code>：已废弃。</p>
+</li>
+<li><code>src</code>：引用的external src的路径。</li>
+<li><code>type</code>：替代了<code>language</code>。表示加载的脚本的内容类型（MIME类型）。一般设置为<code>text/javascript</code>，不设置时默认也是<code>text/javascript</code>。但是服务器传送JavaScript文件时常用的MIME类型其实是<code>application/x-javascript</code>，在<code>type</code>中设置该值又会被忽略。我的理解是这个属性的设置要不不够准确要不不被理睬。<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2></li>
+<li>在<code>&lt;script&gt;</code>标签里面不可以出现任何<code>&lt;/script&gt;</code>字符串，否则将被编译为script的结束。<br>例如：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    alert("</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>是一段不会被正常解析的代码。</p>
+<ol>
+<li>当<code>&lt;script&gt;</code>里面又有external的src属性值，又有internal的JavaScript代码，会加载外部文件，内在代码会被忽略。</li>
+</ol>
+<h1 id="-1"><a href="#-1" class="headerlink" title=""></a><noscript></h1><p><code>&lt;noscript&gt;</code>tag可以在HTML文档中，除了<code>&lt;script&gt;</code>tag之外的任何地方，意思是说在<code>&lt;noscript&gt;</code>tag里面的东西，只有在满足以下两种条件任意一种的情况下才会被加载。</p>
+<ol>
+<li>浏览器不支持脚本。</li>
+<li>浏览器的脚本功能被禁用。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>本页面需要script功能来加载。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</script></h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第一章笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/14/《JavaScript高级程序设计》第一章笔记/" itemprop="url">《JavaScript高级程序设计》第一章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-14T22:02:47-05:00">
+                2018-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="开篇以前"><a href="#开篇以前" class="headerlink" title="开篇以前"></a>开篇以前</h1><p>这一系列的文章主要是以读书笔记的形式，记录学习《JavaScript高级程序设计》一书的学习心得和总结。<br>对于阅读和学习本书的最初想法，来源于一次失败的国内IT公司前端岗位面试。准备面试和实际面试的过程中深刻的意识到了自己对前端知识了解的肤浅和松散。之前零散的记忆和学习也没有真正帮助到了解前端工作内容重心和核心技术。面试官推荐了这本书作为学习资料，并推荐了看书作为学习方法。由此将其确定为近期学习和准备面试的主要内容和方向。即使面试过程和结果都很不尽人意，仍然十分感谢面试官的指点。我想这对于我接下来的职业发展和个人提升，有非常重大的帮助和意义。<br>以此作为前端之路的起点。</p>
+<h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>第一章主要介绍了JavaScript的历史，演化过程，以及一些重要概念入<strong>ECMAScript</strong>，<strong>DOM</strong>以及<strong>BOM</strong>。</p>
+<h2 id="JavaScript历史"><a href="#JavaScript历史" class="headerlink" title="JavaScript历史"></a>JavaScript历史</h2><p>最初在有JavaScript之前，人们并不能真正意义上的和前端有任何交互。即使是简单的提交表单（form）也需要在服务器端（server）端进行内容判定再等待结果返回。在拨号上网年代十分耗费时间。因此NetScape公司开始编写一种在客户端可以执行的语言来辅助功能的完成。起初命名为Mocha，之后改为ViewScript。在发表之前因Java的大热而定名JavaScript，蹭蹭热度哈哈哈。<br>JavaScript1.0是一个很大的成功，之后微软也为其开发的浏览器IE写了类似的语言名为JScript。两种语言都只能在各自的浏览器中运行，可想而知引发了一些麻烦。之后ECMA（European Computer Manufacturers Association)成立了一个，由各大浏览器所属公司的程序员组成的小组，对JavaScript的语法做出了标准化的规范，称之ECMA-262，而在其之上定义了一种脚本语言ECMAScript。<br>JavaScript的实现是基于三点，<strong>ECMAScript</strong>，<strong>DOM</strong>以及<strong>BOM</strong>。</p>
+<h2 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h2><p>ECMAScript并不基于浏览器，同时也没有关于输入输出的定义。简单来说我理解ECMAScript是一个实现了ECMA-262标准的，并不在于真的拿来写程序的这样一种语言。但是基于ECMAScript，可以实现具体的，可用的编程语言，JavaScript也只是其中的一种。同时，实现了ECMAScript的语言能够执行的环境也不只是浏览器，Adobe Flash也是其中之一。</p>
+<h3 id="ECMA-262规定的内容"><a href="#ECMA-262规定的内容" class="headerlink" title="ECMA-262规定的内容"></a>ECMA-262规定的内容</h3><ol>
+<li>语法（Syntax)</li>
+<li>类型（Type）</li>
+<li>语句（Statement）</li>
+<li>关键字（Keywords）</li>
+<li>保留字（Reserved words）</li>
+<li>操作符（Operators）</li>
+<li>对象（Objects）<h3 id="ECMAScript2016-amp-ECMAScript2016"><a href="#ECMAScript2016-amp-ECMAScript2016" class="headerlink" title="ECMAScript2016 &amp; ECMAScript2016"></a>ECMAScript2016 &amp; ECMAScript2016</h3>[TODO]ECMAScript2015，16新增特性<br><a href="http://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">http://kangax.github.io/compat-table/es6/</a><h3 id="ECMAScript的兼容"><a href="#ECMAScript的兼容" class="headerlink" title="ECMAScript的兼容"></a>ECMAScript的兼容</h3>一个语言要称实现了ECMAScript，需要达到以下几点要求：</li>
+<li>支持“ECMA-262”所定义的所有“类型，值，对象，属性，函数以及程序句法和语义”。</li>
+<li>支持Unicode。<br>但是实现ECMAScript的语言被允许做以下的操作：</li>
+<li>添加ECMA-262中没有定义的类以及类的新属性。</li>
+<li>修改或者扩展内置的程序正则表达式的语法。<br>由此，其实ECMAScript的实现是给予了充分的弹性和空间。<h2 id="DOM（Document-Object-Model）"><a href="#DOM（Document-Object-Model）" class="headerlink" title="DOM（Document Object Model）"></a>DOM（Document Object Model）</h2>DOM是一种针对XML，现用于HTML的API，其功能是把页面映射为多层节点结构。基于这样的树形结构，DOM提供的API可以实现对节点的，增删改操作。<br>DOM作为JavaScript的一部分，其实实际上，是在浏览器中实现ECMAScript的一个扩展。也有别的语言实现了自己的DOM。<h2 id="BOM（Browser-Object-Model）"><a href="#BOM（Browser-Object-Model）" class="headerlink" title="BOM（Browser Object Model）"></a>BOM（Browser Object Model）</h2>如果说DOM帮助程序员使用程序控制页面上的布局和节点，那么BOM就是帮助程序员用程序控制浏览器的部分功能，例如弹出窗口，缩放，提供分辨率信息等等。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/css - how css works [study notes]/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -712,7 +994,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -725,7 +1007,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
