@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="介绍第二章主要介绍了如何在HTML文件中引入JavaScript代码。 &amp;lt;script&amp;gt;是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。  async：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个async的文件被解析的顺序是不被保证的。 1&amp;lt;script async src=&quot;exampl">
+<meta name="description" content="介绍第二章主要介绍了如何在HTML文件中引入JavaScript代码。 &amp;lt;script&amp;gt;&amp;lt;script&amp;gt;是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。  async：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个async的文件被解析的顺序是不被保证的。 1&amp;lt;script asy">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《JavaScript高级程序设计》第二章笔记">
 <meta property="og:url" content="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第二章笔记/index.html">
 <meta property="og:site_name" content="Yutong &amp; Orange">
-<meta property="og:description" content="介绍第二章主要介绍了如何在HTML文件中引入JavaScript代码。 &amp;lt;script&amp;gt;是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。  async：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个async的文件被解析的顺序是不被保证的。 1&amp;lt;script async src=&quot;exampl">
+<meta property="og:description" content="介绍第二章主要介绍了如何在HTML文件中引入JavaScript代码。 &amp;lt;script&amp;gt;&amp;lt;script&amp;gt;是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。  async：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个async的文件被解析的顺序是不被保证的。 1&amp;lt;script asy">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-16T04:30:05.000Z">
+<meta property="og:updated_time" content="2018-01-16T04:31:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《JavaScript高级程序设计》第二章笔记">
-<meta name="twitter:description" content="介绍第二章主要介绍了如何在HTML文件中引入JavaScript代码。 &amp;lt;script&amp;gt;是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。  async：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个async的文件被解析的顺序是不被保证的。 1&amp;lt;script async src=&quot;exampl">
+<meta name="twitter:description" content="介绍第二章主要介绍了如何在HTML文件中引入JavaScript代码。 &amp;lt;script&amp;gt;&amp;lt;script&amp;gt;是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。  async：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个async的文件被解析的顺序是不被保证的。 1&amp;lt;script asy">
 
 
 
@@ -301,7 +301,7 @@
 
       
         <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>第二章主要介绍了如何在HTML文件中引入JavaScript代码。</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a><script></h1><p><code>&lt;script&gt;</code>是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。</p>
+<h1 id="lt-script-gt"><a href="#lt-script-gt" class="headerlink" title="&lt;script&gt;"></a><code>&lt;script&gt;</code></h1><p><code>&lt;script&gt;</code>是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。</p>
 <ol>
 <li><p><code>async</code>：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个<code>async</code>的文件被解析的顺序是不被保证的。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
@@ -322,12 +322,12 @@
 <ol>
 <li>当<code>&lt;script&gt;</code>里面又有external的src属性值，又有internal的JavaScript代码，会加载外部文件，内在代码会被忽略。</li>
 </ol>
-<h1 id="-1"><a href="#-1" class="headerlink" title=""></a><noscript></h1><p><code>&lt;noscript&gt;</code>tag可以在HTML文档中，除了<code>&lt;script&gt;</code>tag之外的任何地方，意思是说在<code>&lt;noscript&gt;</code>tag里面的东西，只有在满足以下两种条件任意一种的情况下才会被加载。</p>
+<h1 id="lt-noscript-gt"><a href="#lt-noscript-gt" class="headerlink" title="&lt;noscript&gt;"></a><code>&lt;noscript&gt;</code></h1><p><code>&lt;noscript&gt;</code>tag可以在HTML文档中，除了<code>&lt;script&gt;</code>tag之外的任何地方，意思是说在<code>&lt;noscript&gt;</code>tag里面的东西，只有在满足以下两种条件任意一种的情况下才会被加载。</p>
 <ol>
 <li>浏览器不支持脚本。</li>
 <li>浏览器的脚本功能被禁用。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>本页面需要script功能来加载。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-</script></h1>
+
       
     </div>
     
@@ -490,33 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text"><a href="#" class="headerlink" title=""></a><script></h1><p><code>&lt;script&gt;</code>是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。</p>
-<ol>
-<li><p><code>async</code>：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个<code>async</code>的文件被解析的顺序是不被保证的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>charset</code>：optional。表示src加载的脚本使用的字符集，经常被忽略，不常用。</p>
-</li>
-<li><p><code>defer</code>：optional。表示脚本加载后会等到页面加载完再运行。只针对external src。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>language</code>：已废弃。</p>
-</li>
-<li><code>src</code>：引用的external src的路径。</li>
-<li><code>type</code>：替代了<code>language</code>。表示加载的脚本的内容类型（MIME类型）。一般设置为<code>text/javascript</code>，不设置时默认也是<code>text/javascript</code>。但是服务器传送JavaScript文件时常用的MIME类型其实是<code>application/x-javascript</code>，在<code>type</code>中设置该值又会被忽略。我的理解是这个属性的设置要不不够准确要不不被理睬。<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2></li>
-<li>在<code>&lt;script&gt;</code>标签里面不可以出现任何<code>&lt;/script&gt;</code>字符串，否则将被编译为script的结束。<br>例如：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    alert("</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>是一段不会被正常解析的代码。</p>
-<ol>
-<li>当<code>&lt;script&gt;</code>里面又有external的src属性值，又有internal的JavaScript代码，会加载外部文件，内在代码会被忽略。</li>
-</ol>
-<h1 id="-1"><a href="#-1" class="headerlink" title=""></a><noscript></h1><p><code>&lt;noscript&gt;</code>tag可以在HTML文档中，除了<code>&lt;script&gt;</code>tag之外的任何地方，意思是说在<code>&lt;noscript&gt;</code>tag里面的东西，只有在满足以下两种条件任意一种的情况下才会被加载。</p>
-<ol>
-<li>浏览器不支持脚本。</li>
-<li>浏览器的脚本功能被禁用。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>本页面需要script功能来加载。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-</script></span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-script-gt"><span class="nav-number">2.</span> <span class="nav-text"><a href="#lt-script-gt" class="headerlink" title="&lt;script&gt;"></a><code>&lt;script&gt;</code></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="headerlink" title="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>&#x6CE8;&#x610F;&#x4E8B;&#x9879;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-noscript-gt"><span class="nav-number">3.</span> <span class="nav-text"><a href="#lt-noscript-gt" class="headerlink" title="&lt;noscript&gt;"></a><code>&lt;noscript&gt;</code></span></a></li></ol></div>
             
 
           </div>

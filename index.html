@@ -301,7 +301,7 @@
         
           
             <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>第二章主要介绍了如何在HTML文件中引入JavaScript代码。</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a><script></h1><p><code>&lt;script&gt;</code>是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。</p>
+<h1 id="lt-script-gt"><a href="#lt-script-gt" class="headerlink" title="&lt;script&gt;"></a><code>&lt;script&gt;</code></h1><p><code>&lt;script&gt;</code>是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。</p>
 <ol>
 <li><p><code>async</code>：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个<code>async</code>的文件被解析的顺序是不被保证的。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
@@ -322,12 +322,12 @@
 <ol>
 <li>当<code>&lt;script&gt;</code>里面又有external的src属性值，又有internal的JavaScript代码，会加载外部文件，内在代码会被忽略。</li>
 </ol>
-<h1 id="-1"><a href="#-1" class="headerlink" title=""></a><noscript></h1><p><code>&lt;noscript&gt;</code>tag可以在HTML文档中，除了<code>&lt;script&gt;</code>tag之外的任何地方，意思是说在<code>&lt;noscript&gt;</code>tag里面的东西，只有在满足以下两种条件任意一种的情况下才会被加载。</p>
+<h1 id="lt-noscript-gt"><a href="#lt-noscript-gt" class="headerlink" title="&lt;noscript&gt;"></a><code>&lt;noscript&gt;</code></h1><p><code>&lt;noscript&gt;</code>tag可以在HTML文档中，除了<code>&lt;script&gt;</code>tag之外的任何地方，意思是说在<code>&lt;noscript&gt;</code>tag里面的东西，只有在满足以下两种条件任意一种的情况下才会被加载。</p>
 <ol>
 <li>浏览器不支持脚本。</li>
 <li>浏览器的脚本功能被禁用。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>本页面需要script功能来加载。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
-</script></h1>
+
           
         
       
