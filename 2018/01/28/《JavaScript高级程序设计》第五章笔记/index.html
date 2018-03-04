@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍这一章主要讲JavaScript里面的引用类型。JavaScript没有类（Class）和接口（Interface）这类的概念，所谓的引用类型，可以说是集合数据和方法的结构体。所有的对象，都是引用类型的实例。 对象类型（Object Type）两种定义方法123456789//1var person = new Object();person.name = &quot;Yutong&quot;;person.ag">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript高级程序设计》第五章笔记">
+<meta property="og:url" content="http://yoursite.com/2018/01/28/《JavaScript高级程序设计》第五章笔记/index.html">
+<meta property="og:site_name" content="Yutong &amp; Orange">
+<meta property="og:description" content="介绍这一章主要讲JavaScript里面的引用类型。JavaScript没有类（Class）和接口（Interface）这类的概念，所谓的引用类型，可以说是集合数据和方法的结构体。所有的对象，都是引用类型的实例。 对象类型（Object Type）两种定义方法123456789//1var person = new Object();person.name = &quot;Yutong&quot;;person.ag">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-29T05:16:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript高级程序设计》第五章笔记">
+<meta name="twitter:description" content="介绍这一章主要讲JavaScript里面的引用类型。JavaScript没有类（Class）和接口（Interface）这类的概念，所谓的引用类型，可以说是集合数据和方法的结构体。所有的对象，都是引用类型的实例。 对象类型（Object Type）两种定义方法123456789//1var person = new Object();person.name = &quot;Yutong&quot;;person.ag">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/28/《JavaScript高级程序设计》第五章笔记/"/>
+
+
+
+
+
+  <title>《JavaScript高级程序设计》第五章笔记 | Yutong & Orange</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yutong & Orange</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/《JavaScript高级程序设计》第五章笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《JavaScript高级程序设计》第五章笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-28T23:29:07-05:00">
+                2018-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>这一章主要讲JavaScript里面的引用类型。JavaScript没有类（Class）和接口（Interface）这类的概念，所谓的引用类型，可以说是集合数据和方法的结构体。所有的对象，都是引用类型的实例。</p>
+<h1 id="对象类型（Object-Type）"><a href="#对象类型（Object-Type）" class="headerlink" title="对象类型（Object Type）"></a>对象类型（Object Type）</h1><h2 id="两种定义方法"><a href="#两种定义方法" class="headerlink" title="两种定义方法"></a>两种定义方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"Yutong"</span>;</span><br><span class="line">person.age = <span class="number">24</span>;</span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">"Yutong"</span>,</span><br><span class="line">    age: <span class="number">24</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="两种get属性的方法"><a href="#两种get属性的方法" class="headerlink" title="两种get属性的方法"></a>两种get属性的方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(person.name);</span><br><span class="line">alert(person[<span class="string">"name"</span>]);</span><br></pre></td></tr></table></figure>
+<p>当属性名中有空格，或者别的会导致解析错误的，或者保留字关键字时，只能用第二种方法来access属性。</p>
+<h1 id="数组类型（Array-Type）"><a href="#数组类型（Array-Type）" class="headerlink" title="数组类型（Array Type）"></a>数组类型（Array Type）</h1><h2 id="两种定义方法-1"><a href="#两种定义方法-1" class="headerlink" title="两种定义方法"></a>两种定义方法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">20</span>);</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>);</span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>, <span class="string">"blue"</span>, <span class="string">"green"</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="数组的一些方法"><a href="#数组的一些方法" class="headerlink" title="数组的一些方法"></a>数组的一些方法</h2><h3 id="栈方法（Stack-Methods）"><a href="#栈方法（Stack-Methods）" class="headerlink" title="栈方法（Stack Methods）"></a>栈方法（Stack Methods）</h3><ol>
+<li>push()，在数组末尾添加元素。</li>
+<li>pop()，在数组末尾移除元素。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">colors.push(<span class="string">"yellow"</span>, <span class="string">"orange"</span>);</span><br><span class="line">colors.pop(); <span class="comment">//"orange"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="队列方法（Queue-Methods）"><a href="#队列方法（Queue-Methods）" class="headerlink" title="队列方法（Queue Methods）"></a>队列方法（Queue Methods）</h3><ol>
+<li>shift()，在数组头部移除元素。</li>
+<li>unshift()，和push()相同，在数组末尾添加元素。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colors.shift(); <span class="comment">//"red"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="重排序方法（Reordering-Methods）"><a href="#重排序方法（Reordering-Methods）" class="headerlink" title="重排序方法（Reordering Methods）"></a>重排序方法（Reordering Methods）</h3><ol>
+<li>reverse()方法，将数组中的元素倒序。</li>
+<li>sort()方法，将元素按照特定方式进行排序。默认的方法是通过对比字符串的方式。sort可以接受一个方法参数，定义排序的逻辑。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">15</span>, <span class="number">13</span>];</span><br><span class="line">arr.sort(); <span class="comment">//[1, 13, 15, 3, 5];</span></span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">v1, v2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (v1 &lt; v2) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (v1 &gt; v2) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;); <span class="comment">//[1, 3, 5, 13, 15]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="操作方法（Manipulation-Methods）"><a href="#操作方法（Manipulation-Methods）" class="headerlink" title="操作方法（Manipulation Methods）"></a>操作方法（Manipulation Methods）</h3><h2 id="一些特性"><a href="#一些特性" class="headerlink" title="一些特性"></a>一些特性</h2><ol>
+<li>一个数组可以同时包含不同类型的元素。</li>
+<li>如果用index来取数组中的元素，index大于数组的长度，将会自动调整数组的长度到index在的长度。没有定义过的元素值是<code>undefined</code>。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line">arr[<span class="number">5</span>] = <span class="number">1</span>;</span><br><span class="line">alert(arr.length); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/20/《JavaScript高级程序设计》第四章笔记/" rel="next" title="《JavaScript高级程序设计》第四章笔记">
+                <i class="fa fa-chevron-left"></i> 《JavaScript高级程序设计》第四章笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/30/《JavaScript高级程序设计》第六章笔记/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yutong Huang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象类型（Object-Type）"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#xFF08;Object-Type&#xFF09;" class="headerlink" title="&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#xFF08;Object Type&#xFF09;"></a>&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#xFF08;Object Type&#xFF09;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种定义方法"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;"></a>&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两种get属性的方法"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x4E24;&#x79CD;get&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E24;&#x79CD;get&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x6CD5;"></a>&#x4E24;&#x79CD;get&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x6CD5;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组类型（Array-Type）"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF08;Array-Type&#xFF09;" class="headerlink" title="&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF08;Array Type&#xFF09;"></a>&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF08;Array Type&#xFF09;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#两种定义方法-1"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;-1" class="headerlink" title="&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;"></a>&#x4E24;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的一些方法"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#&#x6570;&#x7EC4;&#x7684;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;" class="headerlink" title="&#x6570;&#x7EC4;&#x7684;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;"></a>&#x6570;&#x7EC4;&#x7684;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈方法（Stack-Methods）"><span class="nav-number">3.2.1.</span> <span class="nav-text"><a href="#&#x6808;&#x65B9;&#x6CD5;&#xFF08;Stack-Methods&#xFF09;" class="headerlink" title="&#x6808;&#x65B9;&#x6CD5;&#xFF08;Stack Methods&#xFF09;"></a>&#x6808;&#x65B9;&#x6CD5;&#xFF08;Stack Methods&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列方法（Queue-Methods）"><span class="nav-number">3.2.2.</span> <span class="nav-text"><a href="#&#x961F;&#x5217;&#x65B9;&#x6CD5;&#xFF08;Queue-Methods&#xFF09;" class="headerlink" title="&#x961F;&#x5217;&#x65B9;&#x6CD5;&#xFF08;Queue Methods&#xFF09;"></a>&#x961F;&#x5217;&#x65B9;&#x6CD5;&#xFF08;Queue Methods&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重排序方法（Reordering-Methods）"><span class="nav-number">3.2.3.</span> <span class="nav-text"><a href="#&#x91CD;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#xFF08;Reordering-Methods&#xFF09;" class="headerlink" title="&#x91CD;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#xFF08;Reordering Methods&#xFF09;"></a>&#x91CD;&#x6392;&#x5E8F;&#x65B9;&#x6CD5;&#xFF08;Reordering Methods&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法（Manipulation-Methods）"><span class="nav-number">3.2.4.</span> <span class="nav-text"><a href="#&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF08;Manipulation-Methods&#xFF09;" class="headerlink" title="&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF08;Manipulation Methods&#xFF09;"></a>&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF08;Manipulation Methods&#xFF09;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些特性"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#&#x4E00;&#x4E9B;&#x7279;&#x6027;" class="headerlink" title="&#x4E00;&#x4E9B;&#x7279;&#x6027;"></a>&#x4E00;&#x4E9B;&#x7279;&#x6027;</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yutong Huang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

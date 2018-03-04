@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍下半部分主要介绍了JavaScript的操作符，语句和函数。其中大多数熟练掌握的内容将不再展开赘述，主要回顾一些JavaScript特有的，以及之前并不熟悉的内容。 操作符（Operator）一元操作符（Unary Operators） ++/–  操作数可以是数字，string，boolean或者object，操作后的数据类型是Number。 可以转换为数字的string，先转化再+1或-1">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《JavaScript高级程序设计》第三章笔记 - 操作符&amp;语句">
+<meta property="og:url" content="http://yoursite.com/2018/01/20/《JavaScript高级程序设计》第三章笔记 - 操作符&语句/index.html">
+<meta property="og:site_name" content="Yutong &amp; Orange">
+<meta property="og:description" content="介绍下半部分主要介绍了JavaScript的操作符，语句和函数。其中大多数熟练掌握的内容将不再展开赘述，主要回顾一些JavaScript特有的，以及之前并不熟悉的内容。 操作符（Operator）一元操作符（Unary Operators） ++/–  操作数可以是数字，string，boolean或者object，操作后的数据类型是Number。 可以转换为数字的string，先转化再+1或-1">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-01-21T00:29:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《JavaScript高级程序设计》第三章笔记 - 操作符&amp;语句">
+<meta name="twitter:description" content="介绍下半部分主要介绍了JavaScript的操作符，语句和函数。其中大多数熟练掌握的内容将不再展开赘述，主要回顾一些JavaScript特有的，以及之前并不熟悉的内容。 操作符（Operator）一元操作符（Unary Operators） ++/–  操作数可以是数字，string，boolean或者object，操作后的数据类型是Number。 可以转换为数字的string，先转化再+1或-1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/20/《JavaScript高级程序设计》第三章笔记 - 操作符&语句/"/>
+
+
+
+
+
+  <title>《JavaScript高级程序设计》第三章笔记 - 操作符&语句 | Yutong & Orange</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yutong & Orange</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/《JavaScript高级程序设计》第三章笔记 - 操作符&语句/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《JavaScript高级程序设计》第三章笔记 - 操作符&语句</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-20T15:30:54-05:00">
+                2018-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>下半部分主要介绍了JavaScript的操作符，语句和函数。其中大多数熟练掌握的内容将不再展开赘述，主要回顾一些JavaScript特有的，以及之前并不熟悉的内容。</p>
+<h1 id="操作符（Operator）"><a href="#操作符（Operator）" class="headerlink" title="操作符（Operator）"></a>操作符（Operator）</h1><h2 id="一元操作符（Unary-Operators）"><a href="#一元操作符（Unary-Operators）" class="headerlink" title="一元操作符（Unary Operators）"></a>一元操作符（Unary Operators）</h2><ul>
+<li>++/– <ul>
+<li>操作数可以是数字，string，boolean或者object，操作后的数据类型是Number。<ul>
+<li>可以转换为数字的string，先转化再+1或-1，不可以转换的，返回NaN。</li>
+<li>boolean先转换为0或1，然后进行加减计算。</li>
+<li>object先调用valueOf()方法，如果是NaN再调用toString()方法，再进行计算。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>+/- <ul>
+<li>如果应用在非数字的操作数上，使用和Number()方法一样的方法先进行转化再计算。</li>
+</ul>
+</li>
+</ul>
+<h2 id="位操作符（Bitwise-Operators）"><a href="#位操作符（Bitwise-Operators）" class="headerlink" title="位操作符（Bitwise Operators）"></a>位操作符（Bitwise Operators）</h2><ul>
+<li>基本原理<ul>
+<li>利用IEEE-754的64位二进制格式存储，但计算时整数是以32位计算之后再以64位存储。</li>
+<li>负数以二进制补码的形势存储，求绝对值的二进制码，取反，加1。</li>
+</ul>
+</li>
+<li>按位非（~）</li>
+<li>按位与（&amp;）</li>
+<li>按位或（|）</li>
+<li>按位亦或（^）</li>
+<li>左移（&lt;&lt;）</li>
+<li>有符号右移（&gt;&gt;，左边补符号位的数值）</li>
+<li>无符号右移（&gt;&gt;&gt;，左边补0）</li>
+</ul>
+<h2 id="布尔操作符（Boolean-Operators）"><a href="#布尔操作符（Boolean-Operators）" class="headerlink" title="布尔操作符（Boolean Operators）"></a>布尔操作符（Boolean Operators）</h2><ul>
+<li><p>逻辑非（!，计算结果是Boolean值）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alert(!<span class="literal">false</span>) <span class="comment">//true</span></span><br><span class="line">alert(!<span class="string">"blue"</span>) <span class="comment">//false</span></span><br><span class="line">alert(!<span class="number">0</span>) <span class="comment">//true</span></span><br><span class="line">alert(!<span class="literal">NaN</span>) <span class="comment">//true</span></span><br><span class="line">alert(!<span class="string">""</span>) <span class="comment">//true</span></span><br><span class="line">alert(!<span class="literal">null</span>) <span class="comment">//true</span></span><br><span class="line">alert(!<span class="string">"123"</span>) <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>逻辑与（&amp;&amp;，返回的是第一个或者第二个操作数的值）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="literal">null</span> &amp;&amp; <span class="number">3</span>) <span class="comment">// null</span></span><br><span class="line">alert(<span class="number">1</span> &amp;&amp; <span class="number">3</span>) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>逻辑非（||，返回的是第一个或者第二个操作数的值）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="literal">null</span> || <span class="number">3</span>) <span class="comment">//3</span></span><br><span class="line">alert(<span class="number">1</span> || <span class="number">3</span>) <span class="comment">//1</span></span><br><span class="line">alert(<span class="literal">null</span> || <span class="literal">NaN</span>) <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="乘性操作符（Multiplicative-Operators）-amp-加性操作符（Additive-Operators）"><a href="#乘性操作符（Multiplicative-Operators）-amp-加性操作符（Additive-Operators）" class="headerlink" title="乘性操作符（Multiplicative Operators）&amp; 加性操作符（Additive Operators）"></a>乘性操作符（Multiplicative Operators）&amp; 加性操作符（Additive Operators）</h2><ul>
+<li>Infinity * 0  = NaN</li>
+<li>Infinity / Infinity = NaN</li>
+<li>Infinity % Infinity = NaN</li>
+<li>Infinity + -Infinity = NaN</li>
+<li>Infinity - Infinity = NaN</li>
+<li>-Infinity - -Infinity = NaN</li>
+</ul>
+<h2 id="关系操作符"><a href="#关系操作符" class="headerlink" title="关系操作符"></a>关系操作符</h2><h2 id="相等操作符"><a href="#相等操作符" class="headerlink" title="相等操作符"></a>相等操作符</h2><ul>
+<li>类型转换<ul>
+<li>Boolean和字符串会被转换成数字。</li>
+<li>Object调用valueOf()函数。</li>
+</ul>
+</li>
+<li>全等和不全等<ul>
+<li>全等是在不转换类型的情况下相等。</li>
+<li>不全等是转换类型之前或之后相等即可。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="number">1</span> == <span class="literal">true</span>) <span class="comment">//true</span></span><br><span class="line">alert(<span class="string">"1"</span> == <span class="literal">true</span>) <span class="comment">//true</span></span><br><span class="line">alert(<span class="number">1</span> === <span class="literal">true</span>) <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="赋值操作符"><a href="#赋值操作符" class="headerlink" title="赋值操作符"></a>赋值操作符</h2><h2 id="逗号操作符"><a href="#逗号操作符" class="headerlink" title="逗号操作符"></a>逗号操作符</h2><h1 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h1><h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><h2 id="do-while语句"><a href="#do-while语句" class="headerlink" title="do-while语句"></a>do-while语句</h2><h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h2><h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><ul>
+<li>ECMAScript中没有块级作用域，所以for语句中定义的变量在for语句之外也可以使用。<h2 id="for-in语句"><a href="#for-in语句" class="headerlink" title="for-in语句"></a>for-in语句</h2></li>
+<li>用于迭代object中的属性。没有顺序之分。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> propName <span class="keyword">in</span> <span class="built_in">window</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="label语句"><a href="#label语句" class="headerlink" title="label语句"></a>label语句</h2><h2 id="break和continue语句"><a href="#break和continue语句" class="headerlink" title="break和continue语句"></a>break和continue语句</h2><h2 id="with语句"><a href="#with语句" class="headerlink" title="with语句"></a>with语句</h2><ul>
+<li>将代码的作用域控制在一个特定的对象中。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">    prop1: <span class="number">1</span>,</span><br><span class="line">    prop2: <span class="number">2</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">with</span> (object) &#123;</span><br><span class="line">    <span class="keyword">var</span> p1 = prop1; <span class="comment">//1</span></span><br><span class="line">    <span class="keyword">var</span> p2 = prop2; <span class="comment">//2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><ul>
+<li>ECMAScript里面的函数的参数时是以数组<code>arguments</code>的形式表示的。所以不管在定义函数时有一个命名的参数，调用时都可以传递少于，等于或多于其个数的参数。</li>
+<li><p>arguments的长度是实际调用时传递的参数的个数。可以通过改变arguments的值来改变命名参数的值，但是反之不适用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">num1, num2</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">arguments</span>[<span class="number">1</span>] = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>); <span class="comment">//return 11</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在严格模式下，不能修改arguments的值（syntax error），并且不能通过修改arguments的值改变num2的值。</p>
+</li>
+<li>函数不能被重载，如果有多个函数重名，在代码最后面出现的得到函数名。</li>
+<li>函数都是值传递，没有地址传递。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/16/《JavaScript高级程序设计》第三章笔记 - 语法&数据类型/" rel="next" title="《JavaScript高级程序设计》第三章笔记 - 语法&数据类型">
+                <i class="fa fa-chevron-left"></i> 《JavaScript高级程序设计》第三章笔记 - 语法&数据类型
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/20/《JavaScript高级程序设计》第四章笔记/" rel="prev" title="《JavaScript高级程序设计》第四章笔记">
+                《JavaScript高级程序设计》第四章笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yutong Huang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作符（Operator）"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Operator&#xFF09;" class="headerlink" title="&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Operator&#xFF09;"></a>&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Operator&#xFF09;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一元操作符（Unary-Operators）"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x4E00;&#x5143;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Unary-Operators&#xFF09;" class="headerlink" title="&#x4E00;&#x5143;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Unary Operators&#xFF09;"></a>&#x4E00;&#x5143;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Unary Operators&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位操作符（Bitwise-Operators）"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x4F4D;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Bitwise-Operators&#xFF09;" class="headerlink" title="&#x4F4D;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Bitwise Operators&#xFF09;"></a>&#x4F4D;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Bitwise Operators&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔操作符（Boolean-Operators）"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#&#x5E03;&#x5C14;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Boolean-Operators&#xFF09;" class="headerlink" title="&#x5E03;&#x5C14;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Boolean Operators&#xFF09;"></a>&#x5E03;&#x5C14;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Boolean Operators&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乘性操作符（Multiplicative-Operators）-amp-加性操作符（Additive-Operators）"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="#&#x4E58;&#x6027;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Multiplicative-Operators&#xFF09;-amp-&#x52A0;&#x6027;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Additive-Operators&#xFF09;" class="headerlink" title="&#x4E58;&#x6027;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Multiplicative Operators&#xFF09;&amp; &#x52A0;&#x6027;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Additive Operators&#xFF09;"></a>&#x4E58;&#x6027;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Multiplicative Operators&#xFF09;&amp; &#x52A0;&#x6027;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Additive Operators&#xFF09;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系操作符"><span class="nav-number">2.5.</span> <span class="nav-text"><a href="#&#x5173;&#x7CFB;&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="&#x5173;&#x7CFB;&#x64CD;&#x4F5C;&#x7B26;"></a>&#x5173;&#x7CFB;&#x64CD;&#x4F5C;&#x7B26;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相等操作符"><span class="nav-number">2.6.</span> <span class="nav-text"><a href="#&#x76F8;&#x7B49;&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="&#x76F8;&#x7B49;&#x64CD;&#x4F5C;&#x7B26;"></a>&#x76F8;&#x7B49;&#x64CD;&#x4F5C;&#x7B26;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赋值操作符"><span class="nav-number">2.7.</span> <span class="nav-text"><a href="#&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;"></a>&#x8D4B;&#x503C;&#x64CD;&#x4F5C;&#x7B26;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逗号操作符"><span class="nav-number">2.8.</span> <span class="nav-text"><a href="#&#x9017;&#x53F7;&#x64CD;&#x4F5C;&#x7B26;" class="headerlink" title="&#x9017;&#x53F7;&#x64CD;&#x4F5C;&#x7B26;"></a>&#x9017;&#x53F7;&#x64CD;&#x4F5C;&#x7B26;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语句"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x8BED;&#x53E5;" class="headerlink" title="&#x8BED;&#x53E5;"></a>&#x8BED;&#x53E5;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if语句"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#if&#x8BED;&#x53E5;" class="headerlink" title="if&#x8BED;&#x53E5;"></a>if&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-while语句"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#do-while&#x8BED;&#x53E5;" class="headerlink" title="do-while&#x8BED;&#x53E5;"></a>do-while&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while语句"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#while&#x8BED;&#x53E5;" class="headerlink" title="while&#x8BED;&#x53E5;"></a>while&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for语句"><span class="nav-number">3.4.</span> <span class="nav-text"><a href="#for&#x8BED;&#x53E5;" class="headerlink" title="for&#x8BED;&#x53E5;"></a>for&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in语句"><span class="nav-number">3.5.</span> <span class="nav-text"><a href="#for-in&#x8BED;&#x53E5;" class="headerlink" title="for-in&#x8BED;&#x53E5;"></a>for-in&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#label语句"><span class="nav-number">3.6.</span> <span class="nav-text"><a href="#label&#x8BED;&#x53E5;" class="headerlink" title="label&#x8BED;&#x53E5;"></a>label&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break和continue语句"><span class="nav-number">3.7.</span> <span class="nav-text"><a href="#break&#x548C;continue&#x8BED;&#x53E5;" class="headerlink" title="break&#x548C;continue&#x8BED;&#x53E5;"></a>break&#x548C;continue&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#with语句"><span class="nav-number">3.8.</span> <span class="nav-text"><a href="#with&#x8BED;&#x53E5;" class="headerlink" title="with&#x8BED;&#x53E5;"></a>with&#x8BED;&#x53E5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch语句"><span class="nav-number">3.9.</span> <span class="nav-text"><a href="#switch&#x8BED;&#x53E5;" class="headerlink" title="switch&#x8BED;&#x53E5;"></a>switch&#x8BED;&#x53E5;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x51FD;&#x6570;" class="headerlink" title="&#x51FD;&#x6570;"></a>&#x51FD;&#x6570;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yutong Huang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
