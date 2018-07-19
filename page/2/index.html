@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="tutorial," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,13 @@
 
 
 
-<meta name="description" content="This article is about how to create a Hexo project and deploy it to your Github Page as your personal blog. I figured it out tonight following the instruction in this article HERE. Create Your Hexo Pr">
-<meta name="keywords" content="tutorial">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Deploy Hexo Blog to Git">
-<meta property="og:url" content="http://yoursite.com/2017/12/05/hexo-git/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yutong &amp; Orange">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Yutong &amp; Orange">
-<meta property="og:description" content="This article is about how to create a Hexo project and deploy it to your Github Page as your personal blog. I figured it out tonight following the instruction in this article HERE. Create Your Hexo Pr">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-12-08T04:42:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Deploy Hexo Blog to Git">
-<meta name="twitter:description" content="This article is about how to create a Hexo project and deploy it to your Github Page as your personal blog. I figured it out tonight following the instruction in this article HERE. Create Your Hexo Pr">
+<meta name="twitter:title" content="Yutong &amp; Orange">
 
 
 
@@ -120,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/05/hexo-git/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
 
 
 
 
-  <title>Deploy Hexo Blog to Git | Yutong & Orange</title>
+  <title>Yutong & Orange</title>
   
 
 
@@ -145,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,9 +214,309 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/css - how css works [study notes]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/25/css - how css works [study notes]/" itemprop="url">CSS - How CSS works [Study Notes]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T21:43:23-05:00">
+                2017-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This series is the study note of the <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">Advanced CSS couse</a>. This article will introduce how CSS works behind the scene. Including how the mechanism resolves the conflicting CSS codes, and how the final CSS values are parsed.</p>
+<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Different-Entities"><a href="#Different-Entities" class="headerlink" title="Different Entities"></a>Different Entities</h2><p>There are three different entities affecting the CSS code. <strong>Author</strong>, <strong>User</strong> and <strong>Browser</strong>.<br>Author: the author of the original CSS code.<br>User: people who see the page on browser, can modify the CSS using front-end tools, such as Chrome developer tools.<br>Browser: The browser itself has its own oginal way of rendering the page using some CSS properties.</p>
+<h1 id="Resolve-Conflicts"><a href="#Resolve-Conflicts" class="headerlink" title="Resolve Conflicts"></a>Resolve Conflicts</h1><p><img src="/images/cssstudynotes/image1.png" alt="how CSS conflicts are resolved"><br>There are three steps to do to resolve the conflicts in CSS codes. </p>
+<h2 id="Importance"><a href="#Importance" class="headerlink" title="Importance"></a>Importance</h2><p>First, it will check the importance of the declaration. The importance basic means how the code has been marked as important. There are normal declaration, and the declaration with the <code>!important</code>, like <code>background-color: blue !important;</code>. Also as introduced in the previous section, there are three different entities who can affect the CSS codes. The importance of the declaration, from the least to the most are in the order of:</p>
+<ol>
+<li>Default browser declarations<br>The default browser declarations is just the foundation CSS code that the necessary for the browser to render the content properly. It can be easily overrided.</li>
+<li>User declaration<br>User’s normal declaration using the front-end tools will always override the browser’s default settings.</li>
+<li>Author declarations<br>User cannot override the properties that have valued defined by author’s code using the front-end tools. </li>
+<li>Author <code>!important</code> declarations</li>
+<li>User <code>!important</code> declarations<br>But if user add <code>!important</code> in the declaration, it gives the code the highest priority in importance.</li>
+</ol>
+<h2 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h2><p>If the conflicting declarations have the same importance, it will check the specificity of them. The more specific the declaration is, the higher priority will be given. From the least to the most specific declarations are in the order of:</p>
+<ol>
+<li>Elements, pseudo-elements<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>The declaration for the <code>background-color</code> here is for all the elements <strong>a</strong>. It has the least specifity.</p>
+<ol>
+<li>Classes, pseudo-classes, attribute<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class &#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Here the declaration is for all the classes with the class name as “class”.</p>
+<ol>
+<li>IDs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#id &#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line">Here is a declaration for the element with ID &quot;id&quot;.</span><br><span class="line">1. Inline styles</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><a class="class" id="id" style="background-color: green;">A</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If the CSS code has been written in the html code, it&apos;s the inline style and has the highest priority.</span><br><span class="line"></span><br><span class="line">### Example</span><br></pre></td></tr></table></figure></p>
+<p>.button {   //(inline:0, id:0, class:1, element:0)<br>    background-color: red;<br>}<br>nav#nav div.div .button {   //(inline:0, id:1, class:2, element:2)<br>    background-color: yellow;<br>}<br>a {   //(inline:0, id:0, class:0, element:1)<br>    background-color: blue;<br>}</p>
+<p>#nav a .button:hover {   //(inline:0, id:1, class:2, element:1)<br>    background-color: green;<br>}<br>```<br>In this case the second line will win the game!</p>
+<h2 id="Source-order"><a href="#Source-order" class="headerlink" title="Source order"></a>Source order</h2><p>If the conflicting declarations have same importance and specificity, the one in the latest section will be chosen and override the codes before. </p>
+<h1 id="Process-Values"><a href="#Process-Values" class="headerlink" title="Process Values"></a>Process Values</h1><p><img src="/images/cssstudynotes/image2.png" alt="how CSS conflicts are resolved"><br>This section will introduce how the values bare processed step by step by the browser.</p>
+<ol>
+<li>Declared value<br>The browser will first search for author declaration for the property, and get all the related values.</li>
+<li>Cascaded value<br>Then it will follow the rules introduced in the previous section, to get the actual value from the declaration. </li>
+<li>Specified value<br>This is the default value for the property if no author declarations found.</li>
+<li>Computed value<br>This step is for computing the relative value into actual values. </li>
+<li>Used value<br>This step is for the final calculation based on the layout. </li>
+<li>Actual value<br>This step will apply the restrictions of the browser and device into the values, then get teh final actual value.</li>
+</ol>
+<h2 id="How-to-turn-relative-values-into-absolute"><a href="#How-to-turn-relative-values-into-absolute" class="headerlink" title="How to turn relative values into absolute"></a>How to turn relative values into absolute</h2><p><img src="/images/cssstudynotes/image3.png" alt="how CSS conflicts are resolved"></p>
+<h2 id="Inhiritance"><a href="#Inhiritance" class="headerlink" title="Inhiritance"></a>Inhiritance</h2><p><img src="/images/cssstudynotes/image4.png" alt="how CSS conflicts are resolved"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/sketching - draw a eye & lines/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/07/sketching - draw a eye & lines/" itemprop="url">Sketching - Draw an eye & Lines</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T23:41:29-05:00">
+                2017-12-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This series of articles are the notes taking of this <a href="www.udemy.com/the-ultimate-drawing-course-beginner-to-advanced">udemy course</a>. This article is about starting with drawing an eye and then lines in arts.</p>
+<h2 id="Draw-An-Eye"><a href="#Draw-An-Eye" class="headerlink" title="Draw An Eye"></a>Draw An Eye</h2><h3 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h3><ol>
+<li>Start with the basic shapes of the eye, the eyebrow, the ball and the core.</li>
+<li>Then add shadows on the edges, darken the lines, find the fixed shapes.</li>
+<li>Color the core of the ball, adding more shades, figure out the reflection part in the ball, the muscules, and even more shades.</li>
+<li>Start drawing lines in eyebrow to make it authentic, also start coloring the eyeball, learn how to control the different kinds of shades, dark or light, tight or loose.</li>
+<li>Draw eyelashes, understand how eyelashes grows from the eyelid and has different angles. </li>
+<li>Even draw the reflection of eyelashes in the eye.</li>
+</ol>
+<h3 id="Key-Notes"><a href="#Key-Notes" class="headerlink" title="Key Notes"></a>Key Notes</h3><ol>
+<li>Don’t work on a single part for too long. It will make the part dispatched from the rest. Make sure you are working all over the places.</li>
+<li>Always start with light lines to find the shape, don’t be too fixed at the beginning.</li>
+<li>Have a sense of shades and shadows. </li>
+</ol>
+<h3 id="What-I-drew"><a href="#What-I-drew" class="headerlink" title="What I drew"></a>What I drew</h3><p> <img src="/images/sketchings/eye1.jpeg" alt="An Eye"></p>
+<h2 id="Lines"><a href="#Lines" class="headerlink" title="Lines"></a>Lines</h2><h3 id="Key-Notes-1"><a href="#Key-Notes-1" class="headerlink" title="Key Notes"></a>Key Notes</h3><ol>
+<li>Contour lines are lines that fix the shape of the objects. </li>
+<li>There are different kinds of lines, dark, light, straight, curved, cornered, etc.</li>
+<li>Use different lines make the art much better. </li>
+<li>Practice draw the shape of objects using single line without looking at your work when you draw, instead stick at the object you are drawing.</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
 
   
 
@@ -250,7 +546,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Deploy Hexo Blog to Git</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/05/hexo-git/" itemprop="url">Deploy Hexo Blog to Git</a></h1>
         
 
         <div class="post-meta">
@@ -300,7 +598,9 @@
       
 
       
-        <p>This article is about how to create a <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> project and deploy it to your <a href="https://pages.github.com/" target="_blank" rel="noopener">Github Page</a> as your personal blog. I figured it out tonight following the instruction in this article <a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="noopener">HERE</a>.</p>
+        
+          
+            <p>This article is about how to create a <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> project and deploy it to your <a href="https://pages.github.com/" target="_blank" rel="noopener">Github Page</a> as your personal blog. I figured it out tonight following the instruction in this article <a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="noopener">HERE</a>.</p>
 <h2 id="Create-Your-Hexo-Project"><a href="#Create-Your-Hexo-Project" class="headerlink" title="Create Your Hexo Project"></a>Create Your Hexo Project</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>You can simply follow the instruction on their official web page at <a href="https://hexo.io/docs/index.html" target="_blank" rel="noopener">https://hexo.io/docs/index.html</a>. To install Hexo, you need <a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJS</a> and <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> installed as preferences. If you already have those installed, use the command line below to install Hexo. Then you are good to go. </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <h3 id="Create-A-Project"><a href="#Create-A-Project" class="headerlink" title="Create A Project"></a>Create A Project</h3><p>First, make a directory in your local where you want to put your blog project, then go to that folder in your terminal. Then you can initialize a Hexo project using the command line at:</p>
@@ -332,6 +632,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
 <p>If you see this, it means that you didn’t have a SSH key set up in your Git Hub account. You can follow the instructions <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank" rel="noopener">HERE</a> for a reference. After you set up the key, you should be able to deploy it to your repo properly.</p>
 
+          
+        
       
     </div>
     
@@ -346,36 +648,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/tutorial/" rel="tag"># tutorial</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/07/sketching - draw a eye & lines/" rel="prev" title="Sketching - Draw an eye & Lines">
-                Sketching - Draw an eye & Lines <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -385,11 +665,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -397,10 +680,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -421,17 +700,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -484,22 +754,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-Your-Hexo-Project"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Create-Your-Hexo-Project" class="headerlink" title="Create Your Hexo Project"></a>Create Your Hexo Project</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Installation"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-A-Project"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#Create-A-Project" class="headerlink" title="Create A Project"></a>Create A Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-Server"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#Run-Server" class="headerlink" title="Run Server"></a>Run Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write-Post"><span class="nav-number">1.4.</span> <span class="nav-text"><a href="#Write-Post" class="headerlink" title="Write Post"></a>Write Post</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-GitHub-Page"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Create-GitHub-Page" class="headerlink" title="Create GitHub Page"></a>Create GitHub Page</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-A-Repository"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#Create-A-Repository" class="headerlink" title="Create A Repository"></a>Create A Repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-One-Commit"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#Create-One-Commit" class="headerlink" title="Create One Commit"></a>Create One Commit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploy-Hexo-to-GitHub"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Deploy-Hexo-to-GitHub" class="headerlink" title="Deploy Hexo to GitHub"></a>Deploy Hexo to GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Principle-of-Deployment"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#The-Principle-of-Deployment" class="headerlink" title="The Principle of Deployment"></a>The Principle of Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Hexo-Deploy"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#Using-Hexo-Deploy" class="headerlink" title="Using Hexo Deploy"></a>Using Hexo Deploy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Configuration"><span class="nav-number">3.2.1.</span> <span class="nav-text"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Procedures"><span class="nav-number">3.2.2.</span> <span class="nav-text"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Errors"><span class="nav-number">3.2.3.</span> <span class="nav-text"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -633,10 +887,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
 
   
 

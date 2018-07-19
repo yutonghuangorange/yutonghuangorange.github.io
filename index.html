@@ -229,6 +229,388 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/Study Notes @07-18-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/18/Study Notes @07-18-18/" itemprop="url">Study Notes @07/18/18</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-18T23:24:43-04:00">
+                2018-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Today’s notes is for the Section 5, Lecture 42-47 of this <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">udemy course</a>.</p>
+<h1 id="Lecture-42-44"><a href="#Lecture-42-44" class="headerlink" title="Lecture 42-44"></a>Lecture 42-44</h1><p><img src="/images/cssstudynotes/section5lecture42.png" alt="Screenshots"></p>
+<h2 id="How-to-create-a-circled-picture"><a href="#How-to-create-a-circled-picture" class="headerlink" title="How to create a circled picture"></a>How to create a circled picture</h2><p>First we define how the element outside will align with the element. In this case, the text on the right hand side.<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.story__shape</span> &#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">5rem</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">5rem</span>;</span><br><span class="line">    -webkit-shape-outside: circle(<span class="number">50%</span> at <span class="number">50%</span> <span class="number">50%</span>); <span class="comment">// diameter, circle center point</span></span><br><span class="line">    shape-outside: circle(<span class="number">50%</span> at <span class="number">50%</span> <span class="number">50%</span>); <span class="comment">//only work if the element is floating and have dimensions set.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Then we circle the element itself.<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.story__shape</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">clip-path</span>: circle(<span class="number">50%</span> at <span class="number">50%</span> <span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">clip-path</span>: circle(<span class="number">50%</span> at <span class="number">50%</span> <span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="How-to-put-a-video-at-the-background"><a href="#How-to-put-a-video-at-the-background" class="headerlink" title="How to put a video at the background"></a>How to put a video at the background</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bg-video"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">video</span> <span class="attr">class</span>=<span class="string">"bg-video__content"</span> <span class="attr">autoplay</span> <span class="attr">muted</span> <span class="attr">loop</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"img/video.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"img/video.webm"</span> <span class="attr">type</span>=<span class="string">"video/webm"</span>&gt;</span></span><br><span class="line">        Your broswer is not supported!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg-video</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">    <span class="attribute">opacity</span>: .<span class="number">15</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line"></span><br><span class="line">    &amp;__content &#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="selector-tag">object</span>-fit: cover; <span class="comment">// work as background-fit, but work for html element</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Lecture-45-47"><a href="#Lecture-45-47" class="headerlink" title="Lecture 45-47"></a>Lecture 45-47</h1><p><img src="/images/cssstudynotes/section5lecture45.png" alt="Screenshots"></p>
+<h2 id="Another-way-of-clipping-the-background-image"><a href="#Another-way-of-clipping-the-background-image" class="headerlink" title="Another way of clipping the background image"></a>Another way of clipping the background image</h2><p>We can achieve this by specifying two layer of background image with the first layer being a gradient. Then specify the angle and the transition of the gradient to create a skewed transparent layer on top of the image.<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.book</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: linear-gradient(</span><br><span class="line">            <span class="number">105deg</span>, </span><br><span class="line">            rgba(<span class="variable">$color-white</span>, .<span class="number">9</span>) <span class="number">0%</span>,</span><br><span class="line">            rgba(<span class="variable">$color-white</span>, .<span class="number">9</span>) <span class="number">50%</span>,</span><br><span class="line">            transparent <span class="number">50%</span>) </span><br><span class="line">        ,url(../img/nat-<span class="number">10</span>.jpg); <span class="comment">// angle, color potiion, color position, color position.</span></span><br><span class="line">    <span class="attribute">background-size</span>: cover;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">1.5rem</span> <span class="number">4rem</span> rgba(<span class="variable">$color-black</span>, .<span class="number">2</span>);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50rem</span>;</span><br><span class="line"></span><br><span class="line">    &amp;__form &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">6rem</span>;</span><br><span class="line">    &#125; <span class="comment">// place the form at the left side</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Customize-radio-button-input"><a href="#Customize-radio-button-input" class="headerlink" title="Customize radio button input"></a>Customize radio button input</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form__radio-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"small"</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">class</span>=<span class="string">"form__radio-input"</span> <span class="attr">name</span>=<span class="string">"size"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"small"</span> <span class="attr">class</span>=<span class="string">"form__radio-label"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"form__radio-button"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        Small tour group</span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Create-radio-btn-using-span"><a href="#Create-radio-btn-using-span" class="headerlink" title="Create radio btn using span"></a>Create radio btn using span</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&amp;__radio-<span class="selector-tag">button</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">3rem</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">3rem</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="variable">$color-primary</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">top</span>: -<span class="number">0.4rem</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Create-the-selected-effect"><a href="#Create-the-selected-effect" class="headerlink" title="Create the selected effect"></a>Create the selected effect</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&amp;__radio-<span class="selector-tag">button</span> &#123;</span><br><span class="line">    &amp;::after &#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">1.3rem</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">1.3rem</span>;</span><br><span class="line">        <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">        <span class="attribute">display</span>: block;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">        <span class="attribute">transform</span>: translate(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="variable">$color-primary</span>;</span><br><span class="line">        <span class="attribute">opacity</span>: <span class="number">0</span>; <span class="comment">// set to transparent by default</span></span><br><span class="line">        <span class="attribute">transition</span>: opacity .<span class="number">2s</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Connect-to-the-real-input"><a href="#Connect-to-the-real-input" class="headerlink" title="Connect to the real input"></a>Connect to the real input</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;__radio-<span class="selector-tag">input</span>:checked ~ &amp;__radio-<span class="selector-tag">label</span> &amp;__radio-<span class="selector-tag">button</span>::after &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125; <span class="comment">// when the radio-input is checked, the radio-button inside the sibline radio-label, it's after class got showed.</span></span><br></pre></td></tr></table></figure>
+<h3 id="Hide-the-real-input"><a href="#Hide-the-real-input" class="headerlink" title="Hide the real input"></a>Hide the real input</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;__radio-<span class="selector-tag">input</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/Study Notes @07-16-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/16/Study Notes @07-16-18/" itemprop="url">Study Notes @07/16/18</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-16T22:27:47-04:00">
+                2018-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Today’s notes is for the Section 5, Lecture 39-41 of this <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">udemy course</a>.</p>
+<p> <img src="/images/cssstudynotes/section5lecture39.png" alt="Screenshots"></p>
+<h2 id="How-to-have-a-flipping-card"><a href="#How-to-have-a-flipping-card" class="headerlink" title="How to have a flipping card"></a>How to have a flipping card</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card__side card__side--front"</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card__side card__side--back"</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">52rem</span>;</span><br><span class="line">    <span class="attribute">perspective</span>: <span class="number">1500rem</span>; <span class="comment">// for control the rotate angle, the bigger the smoother</span></span><br><span class="line"></span><br><span class="line">    &amp;__side &#123;</span><br><span class="line">        <span class="attribute">position</span>: absolute; <span class="comment">// to make the two div positioned at the same place</span></span><br><span class="line">        <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">transition</span>: all .<span class="number">8s</span> ease;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">        <span class="attribute">overflow</span>: hidden; <span class="comment">// to keep the border radius no matter the shape of child elements</span></span><br><span class="line">        <span class="attribute">backface-visibility</span>: hidden; <span class="comment">// to hide the element when rotated to the back</span></span><br><span class="line"></span><br><span class="line">        &amp;--back &#123;</span><br><span class="line">            <span class="attribute">transform</span>: rotateY(<span class="number">180deg</span>); <span class="comment">// set the back div initially to be rotated back</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">    &amp;:hover &amp;__side--front &#123;</span><br><span class="line">        <span class="attribute">transform</span>: rotateY(-<span class="number">180deg</span>); <span class="comment">// when hover, rotate the front div to the back</span></span><br><span class="line">    &#125;  </span><br><span class="line">    &amp;:hover &amp;__side--back &#123;</span><br><span class="line">        <span class="attribute">transform</span>: rotateY(<span class="number">0</span>); <span class="comment">// when hover, rotate the back div to the front</span></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="How-to-clip-amp-blend-the-background-image"><a href="#How-to-clip-amp-blend-the-background-image" class="headerlink" title="How to clip &amp; blend the background image"></a>How to clip &amp; blend the background image</h2><h3 id="Clip-background-image"><a href="#Clip-background-image" class="headerlink" title="Clip background image"></a>Clip background image</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.card__picture</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">clip-path</span>: polygon(<span class="number">0</span> <span class="number">0</span>, <span class="number">100%</span> <span class="number">0</span>, <span class="number">100%</span> <span class="number">85%</span>, <span class="number">0</span> <span class="number">100%</span>); </span><br><span class="line">    <span class="attribute">clip-path</span>: polygon(<span class="number">0</span> <span class="number">0</span>, <span class="number">100%</span> <span class="number">0</span>, <span class="number">100%</span> <span class="number">85%</span>, <span class="number">0</span> <span class="number">100%</span>); <span class="comment">// clip the thing, params as left top, right top, right bottom, left bottom</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Blend-background-image"><a href="#Blend-background-image" class="headerlink" title="Blend background image"></a>Blend background image</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.card__picture</span> &#123;</span><br><span class="line">    <span class="attribute">background-blend-mode</span>: screen; <span class="comment">// only supported in certain browsers, IE not included</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="How-to-set-the-decoration-for-span-break"><a href="#How-to-set-the-decoration-for-span-break" class="headerlink" title="How to set the decoration for span break"></a>How to set the decoration for span break</h2><p>When an inline element got broke into several different lines, how to keep the decoration consistent for all the lines? For example padding distance.<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.card__heading--span</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">box-decoration-break</span>: clone; <span class="comment">// keep it consistent</span></span><br><span class="line">    <span class="attribute">box-decoration-break</span>: clone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/Study Notes @07-15-18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/15/Study Notes @07-15-18/" itemprop="url">Study Notes @07/15/18</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T20:55:12-04:00">
+                2018-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>This series of articles are the daily study notes related to tech. It can be coding related, for CSS, JS, etc. Or design related like Photoshop, etc.Today’s notes is for the Section 5, Lecture 38 of this <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">udemy course</a>.</p>
+<p> <img src="/images/cssstudynotes/section5lecture38.png" alt="Screenshots"></p>
+<h2 id="How-to-have-a-layer-gradient-over-background-image"><a href="#How-to-have-a-layer-gradient-over-background-image" class="headerlink" title="How to have a layer gradient over background image"></a>How to have a layer gradient over background image</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.background</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: linear-gradient (</span><br><span class="line">        to right bottom,</span><br><span class="line">        <span class="built_in">rgba</span>($color1, 0.8),</span><br><span class="line">        <span class="built_in">rgba</span>($color2, 0.8),</span><br><span class="line">        <span class="built_in">url</span>(../img/img.png)</span><br><span class="line">    );</span><br><span class="line">    <span class="attribute">background-size</span>: cover;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="How-to-skew-background-image"><a href="#How-to-skew-background-image" class="headerlink" title="How to skew background image"></a>How to skew background image</h2><h3 id="Skew-the-background"><a href="#Skew-the-background" class="headerlink" title="Skew the background"></a>Skew the background</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent-element</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewY</span>(-7deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Keep-the-child-elements-straight"><a href="#Keep-the-child-elements-straight" class="headerlink" title="Keep the child elements straight"></a>Keep the child elements straight</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent-element</span> &gt; * &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">skewY</span>(7deg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="How-to-give-text-gradient-effect"><a href="#How-to-give-text-gradient-effect" class="headerlink" title="How to give text gradient effect"></a>How to give text gradient effect</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: linear-gradient (</span><br><span class="line">        to right, </span><br><span class="line">        <span class="built_in">rgba</span>($color1, 0.8),</span><br><span class="line">        <span class="built_in">rgba</span>($color2, 0.8)</span><br><span class="line">    );</span><br><span class="line">    <span class="attribute">background-clip</span>: text;</span><br><span class="line">    <span class="attribute">-webkit-background-clip</span>: text;</span><br><span class="line">    <span class="attribute">color</span>: transparent;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/《JavaScript高级程序设计》第六章笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -248,7 +630,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/30/《JavaScript高级程序设计》第六章笔记/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2018/01/30/《JavaScript高级程序设计》第六章笔记/" itemprop="url">《JavaScript高级程序设计》第六章笔记</a></h1>
         
 
         <div class="post-meta">
@@ -300,15 +682,20 @@
       
         
           
-            <h2 id="继承（Inheritance）"><a href="#继承（Inheritance）" class="headerlink" title="继承（Inheritance）"></a>继承（Inheritance）</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>这一章主要讲的是在JS中的对于面向对象这一概念是如何实现的。讲到的主要内容有，对象，创建对象，和继承。</p>
+<h1 id="对象（Object）"><a href="#对象（Object）" class="headerlink" title="对象（Object）"></a>对象（Object）</h1><h2 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h2><ol>
+<li>数据属性（Data Properties）<br>包括一个数据值<br> - </li>
+<li>访问器属性（Accessor Properties）：包括getter和setter的pair。</li>
+</ol>
+<h1 id="继承（Inheritance）"><a href="#继承（Inheritance）" class="headerlink" title="继承（Inheritance）"></a>继承（Inheritance）</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
 <li>JavaScript只有对象，没有类和接口的概念</li>
 <li>函数也是一种对象。对象的特点：原型，构造器</li>
-<li>构造函数： new</li>
-<li>所有对象都继承自Object<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3>实例[内部指针] -&gt; 构造函数[原型对象]<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.property = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">this</span>.function = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"function supertype"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</span><br><span class="line"><span class="keyword">var</span> property = instance.property <span class="comment">//true</span></span><br><span class="line"><span class="keyword">var</span> value = instance.function; <span class="comment">//"function"</span></span><br></pre></td></tr></table></figure>
+<li>构造函数：当调用一个方法的时候，我们使用了<code>new</code>关键字，便说明该函数将被当做构造函数来使用</li>
+<li>所有对象都继承自<code>Object</code>这个对象。<h2 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h2>实例[内部指针] -&gt; 构造函数[原型对象]<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.property = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">this</span>.function = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"function supertype"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</span><br><span class="line"><span class="keyword">var</span> property = instance.property <span class="comment">//true</span></span><br><span class="line"><span class="keyword">var</span> value = instance.function; <span class="comment">//"function"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>原型的方法和属性会被子类所有的instance共享。</p>
-<h3 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>原型的方法和属性会被子类所有的instance共享。</p>
+<h2 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1333,459 +1720,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/25/css - how css works [study notes]/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yutong Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yutong & Orange">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/25/css - how css works [study notes]/" itemprop="url">CSS - How CSS works [Study Notes]</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T21:43:23-05:00">
-                2017-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>This series is the study note of the <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">Advanced CSS couse</a>. This article will introduce how CSS works behind the scene. Including how the mechanism resolves the conflicting CSS codes, and how the final CSS values are parsed.</p>
-<h1 id="Basic-Knowledge"><a href="#Basic-Knowledge" class="headerlink" title="Basic Knowledge"></a>Basic Knowledge</h1><h2 id="Different-Entities"><a href="#Different-Entities" class="headerlink" title="Different Entities"></a>Different Entities</h2><p>There are three different entities affecting the CSS code. <strong>Author</strong>, <strong>User</strong> and <strong>Browser</strong>.<br>Author: the author of the original CSS code.<br>User: people who see the page on browser, can modify the CSS using front-end tools, such as Chrome developer tools.<br>Browser: The browser itself has its own oginal way of rendering the page using some CSS properties.</p>
-<h1 id="Resolve-Conflicts"><a href="#Resolve-Conflicts" class="headerlink" title="Resolve Conflicts"></a>Resolve Conflicts</h1><p><img src="/images/cssstudynotes/image1.png" alt="how CSS conflicts are resolved"><br>There are three steps to do to resolve the conflicts in CSS codes. </p>
-<h2 id="Importance"><a href="#Importance" class="headerlink" title="Importance"></a>Importance</h2><p>First, it will check the importance of the declaration. The importance basic means how the code has been marked as important. There are normal declaration, and the declaration with the <code>!important</code>, like <code>background-color: blue !important;</code>. Also as introduced in the previous section, there are three different entities who can affect the CSS codes. The importance of the declaration, from the least to the most are in the order of:</p>
-<ol>
-<li>Default browser declarations<br>The default browser declarations is just the foundation CSS code that the necessary for the browser to render the content properly. It can be easily overrided.</li>
-<li>User declaration<br>User’s normal declaration using the front-end tools will always override the browser’s default settings.</li>
-<li>Author declarations<br>User cannot override the properties that have valued defined by author’s code using the front-end tools. </li>
-<li>Author <code>!important</code> declarations</li>
-<li>User <code>!important</code> declarations<br>But if user add <code>!important</code> in the declaration, it gives the code the highest priority in importance.</li>
-</ol>
-<h2 id="Specificity"><a href="#Specificity" class="headerlink" title="Specificity"></a>Specificity</h2><p>If the conflicting declarations have the same importance, it will check the specificity of them. The more specific the declaration is, the higher priority will be given. From the least to the most specific declarations are in the order of:</p>
-<ol>
-<li>Elements, pseudo-elements<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a &#123;</span><br><span class="line">    background-color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>The declaration for the <code>background-color</code> here is for all the elements <strong>a</strong>. It has the least specifity.</p>
-<ol>
-<li>Classes, pseudo-classes, attribute<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class &#123;</span><br><span class="line">    background-color: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Here the declaration is for all the classes with the class name as “class”.</p>
-<ol>
-<li>IDs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#id &#123;</span><br><span class="line">    background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line">Here is a declaration for the element with ID &quot;id&quot;.</span><br><span class="line">1. Inline styles</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><a class="class" id="id" style="background-color: green;">A</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">If the CSS code has been written in the html code, it&apos;s the inline style and has the highest priority.</span><br><span class="line"></span><br><span class="line">### Example</span><br></pre></td></tr></table></figure></p>
-<p>.button {   //(inline:0, id:0, class:1, element:0)<br>    background-color: red;<br>}<br>nav#nav div.div .button {   //(inline:0, id:1, class:2, element:2)<br>    background-color: yellow;<br>}<br>a {   //(inline:0, id:0, class:0, element:1)<br>    background-color: blue;<br>}</p>
-<p>#nav a .button:hover {   //(inline:0, id:1, class:2, element:1)<br>    background-color: green;<br>}<br>```<br>In this case the second line will win the game!</p>
-<h2 id="Source-order"><a href="#Source-order" class="headerlink" title="Source order"></a>Source order</h2><p>If the conflicting declarations have same importance and specificity, the one in the latest section will be chosen and override the codes before. </p>
-<h1 id="Process-Values"><a href="#Process-Values" class="headerlink" title="Process Values"></a>Process Values</h1><p><img src="/images/cssstudynotes/image2.png" alt="how CSS conflicts are resolved"><br>This section will introduce how the values bare processed step by step by the browser.</p>
-<ol>
-<li>Declared value<br>The browser will first search for author declaration for the property, and get all the related values.</li>
-<li>Cascaded value<br>Then it will follow the rules introduced in the previous section, to get the actual value from the declaration. </li>
-<li>Specified value<br>This is the default value for the property if no author declarations found.</li>
-<li>Computed value<br>This step is for computing the relative value into actual values. </li>
-<li>Used value<br>This step is for the final calculation based on the layout. </li>
-<li>Actual value<br>This step will apply the restrictions of the browser and device into the values, then get teh final actual value.</li>
-</ol>
-<h2 id="How-to-turn-relative-values-into-absolute"><a href="#How-to-turn-relative-values-into-absolute" class="headerlink" title="How to turn relative values into absolute"></a>How to turn relative values into absolute</h2><p><img src="/images/cssstudynotes/image3.png" alt="how CSS conflicts are resolved"></p>
-<h2 id="Inhiritance"><a href="#Inhiritance" class="headerlink" title="Inhiritance"></a>Inhiritance</h2><p><img src="/images/cssstudynotes/image4.png" alt="how CSS conflicts are resolved"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/sketching - draw a eye & lines/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yutong Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yutong & Orange">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/07/sketching - draw a eye & lines/" itemprop="url">Sketching - Draw an eye & Lines</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-07T23:41:29-05:00">
-                2017-12-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>This series of articles are the notes taking of this <a href="www.udemy.com/the-ultimate-drawing-course-beginner-to-advanced]">udemy course</a>. This article is about starting with drawing an eye and then lines in arts.</p>
-<h2 id="Draw-An-Eye"><a href="#Draw-An-Eye" class="headerlink" title="Draw An Eye"></a>Draw An Eye</h2><h3 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h3><ol>
-<li>Start with the basic shapes of the eye, the eyebrow, the ball and the core.</li>
-<li>Then add shadows on the edges, darken the lines, find the fixed shapes.</li>
-<li>Color the core of the ball, adding more shades, figure out the reflection part in the ball, the muscules, and even more shades.</li>
-<li>Start drawing lines in eyebrow to make it authentic, also start coloring the eyeball, learn how to control the different kinds of shades, dark or light, tight or loose.</li>
-<li>Draw eyelashes, understand how eyelashes grows from the eyelid and has different angles. </li>
-<li>Even draw the reflection of eyelashes in the eye.</li>
-</ol>
-<h3 id="Key-Notes"><a href="#Key-Notes" class="headerlink" title="Key Notes"></a>Key Notes</h3><ol>
-<li>Don’t work on a single part for too long. It will make the part dispatched from the rest. Make sure you are working all over the places.</li>
-<li>Always start with light lines to find the shape, don’t be too fixed at the beginning.</li>
-<li>Have a sense of shades and shadows. </li>
-</ol>
-<h3 id="What-I-drew"><a href="#What-I-drew" class="headerlink" title="What I drew"></a>What I drew</h3><p> <img src="/images/sketchings/eye1.jpeg" alt="An Eye"></p>
-<h2 id="Lines"><a href="#Lines" class="headerlink" title="Lines"></a>Lines</h2><h3 id="Key-Notes-1"><a href="#Key-Notes-1" class="headerlink" title="Key Notes"></a>Key Notes</h3><ol>
-<li>Contour lines are lines that fix the shape of the objects. </li>
-<li>There are different kinds of lines, dark, light, straight, curved, cornered, etc.</li>
-<li>Use different lines make the art much better. </li>
-<li>Practice draw the shape of objects using single line without looking at your work when you draw, instead stick at the object you are drawing.</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/05/hexo-git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yutong Huang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yutong & Orange">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/05/hexo-git/" itemprop="url">Deploy Hexo Blog to Git</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-05T23:21:43-05:00">
-                2017-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>This article is about how to create a <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> project and deploy it to your <a href="https://pages.github.com/" target="_blank" rel="noopener">Github Page</a> as your personal blog. I figured it out tonight following the instruction in this article <a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="noopener">HERE</a>.</p>
-<h2 id="Create-Your-Hexo-Project"><a href="#Create-Your-Hexo-Project" class="headerlink" title="Create Your Hexo Project"></a>Create Your Hexo Project</h2><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>You can simply follow the instruction on their official web page at <a href="https://hexo.io/docs/index.html" target="_blank" rel="noopener">https://hexo.io/docs/index.html</a>. To install Hexo, you need <a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJS</a> and <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> installed as preferences. If you already have those installed, use the command line below to install Hexo. Then you are good to go. </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h3 id="Create-A-Project"><a href="#Create-A-Project" class="headerlink" title="Create A Project"></a>Create A Project</h3><p>First, make a directory in your local where you want to put your blog project, then go to that folder in your terminal. Then you can initialize a Hexo project using the command line at:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
-<p>This command will init the project for you. The file structure in the folder should look like: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+-- _config.yml //the configuration file</span><br><span class="line">+-- package.json //contains the dependencies of the project</span><br><span class="line">+-- scaffolds //contains some basis <span class="keyword">for</span> posts, drafts, photos, etc.</span><br><span class="line">+-- <span class="built_in">source</span> //<span class="built_in">where</span> the posts <span class="keyword">in</span> your blog come from</span><br><span class="line">|   +-- _drafts //drafts</span><br><span class="line">|   +-- _posts //posts</span><br><span class="line">+-- themes //contains the themes you<span class="string">'d like to use</span></span><br></pre></td></tr></table></figure>
-<p>Then you need to do the command below in the folder to install the dependencies. After that you will have a node_modules folder contains the libraries.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
-<p>More details at <a href="https://hexo.io/docs/setup.html" target="_blank" rel="noopener">https://hexo.io/docs/setup.html</a>.</p>
-<h3 id="Run-Server"><a href="#Run-Server" class="headerlink" title="Run Server"></a>Run Server</h3><p>To run the server, simply do <code>hexo server</code> or <code>hexo d</code> in short. Then you can go to <code>localhost:4000</code> to check the blog project. When you do init, it created a default fundemental blog layout for you with the Hexo study information. </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<h3 id="Write-Post"><a href="#Write-Post" class="headerlink" title="Write Post"></a>Write Post</h3><p>You can directly modify files in the <code>_posts</code> folder as mentioned using Markdown language. </p>
-<h2 id="Create-GitHub-Page"><a href="#Create-GitHub-Page" class="headerlink" title="Create GitHub Page"></a>Create GitHub Page</h2><p>GitHub Page is somewhere you can deploy your web project onto. Every GitHub account get one page. </p>
-<h3 id="Create-A-Repository"><a href="#Create-A-Repository" class="headerlink" title="Create A Repository"></a>Create A Repository</h3><p>It is required that you follow the naming pattern for your GitHub Page as <code>[username]/[username].github.io</code>. For example mine repository is at <code>yutonghuangorange/yutonghuangorange.github.io</code>, and my GitHub Page is at the url <code>https://yutonghuangorange.github.io</code>.</p>
-<h3 id="Create-One-Commit"><a href="#Create-One-Commit" class="headerlink" title="Create One Commit"></a>Create One Commit</h3><p>It requires one commit to initialize the project. Basically it will render the <code>index.html</code> file in the repository as the index page. For example you can simly create a <code>index.html</code> file and write “Test” into it, when you go to the link you can see the text “Test” rendered in the page.</p>
-<p>If you are using command line to play with Git, you can follow the instruction here.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/[username]/[username].github.io.git </span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">"Test"</span> &gt; index.html</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"The first commit for the index page"</span></span><br><span class="line">$ git push</span><br></pre></td></tr></table></figure>
-<p>Then your GitHub Page repository should be good to go.</p>
-<h2 id="Deploy-Hexo-to-GitHub"><a href="#Deploy-Hexo-to-GitHub" class="headerlink" title="Deploy Hexo to GitHub"></a>Deploy Hexo to GitHub</h2><p>This is the key part of the whole process. There are basically two ways to do this. First is to use the Deploy function that Hexo has originally, Second is to use Git to do that. </p>
-<h3 id="The-Principle-of-Deployment"><a href="#The-Principle-of-Deployment" class="headerlink" title="The Principle of Deployment"></a>The Principle of Deployment</h3><p>When you deploy your hexo project to your github page, what it does is to first generate the required static files from whatever your Hexo project contains, then put those static files in a structure that Git can understand and render into a folder called <code>.deploy_git</code>, and upload those files to your repository. In this case, every time you want to update your repository, you need to first regenerate the static files then commit them.</p>
-<h3 id="Using-Hexo-Deploy"><a href="#Using-Hexo-Deploy" class="headerlink" title="Using Hexo Deploy"></a>Using Hexo Deploy</h3><h4 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h4><p>First thing first, is to change the configuration file for your Hexo project in <code>_config.yml</code> file in the root of your project. Add the lines below to it.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: [your repo] // for example: git@github.com:yutonghuangorange/yutonghuangorange.github.io.git</span><br><span class="line">  branch: [branch] // for example: master</span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure>
-<p>Then you need to install the package used for this functionality.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>Then you need to generate the static files to be uploaded.</p>
-<h4 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate <span class="comment"># or hexo g in short</span></span><br></pre></td></tr></table></figure>
-<p>Finally, deploy it to your git repo.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy <span class="comment"># or hexo d in short</span></span><br></pre></td></tr></table></figure>
-<h4 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h4><p>You might get errors when you try the <code>hexo d</code> the first time. </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
-<p>If you see this, it means that you didn’t have a SSH key set up in your Git Hub account. You can follow the instructions <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank" rel="noopener">HERE</a> for a reference. After you set up the key, you should be able to deploy it to your repo properly.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1829,7 +1770,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1842,7 +1783,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

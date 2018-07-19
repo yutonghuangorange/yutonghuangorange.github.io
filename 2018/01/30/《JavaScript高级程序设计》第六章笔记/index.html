@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="继承（Inheritance）基本概念 JavaScript只有对象，没有类和接口的概念 函数也是一种对象。对象的特点：原型，构造器 构造函数： new 所有对象都继承自Object原型链继承实例[内部指针] -&amp;gt; 构造函数[原型对象]12345678910111213function SuperType() &amp;#123;    this.property = true;    this.f">
+<meta name="description" content="介绍这一章主要讲的是在JS中的对于面向对象这一概念是如何实现的。讲到的主要内容有，对象，创建对象，和继承。 对象（Object）属性类型 数据属性（Data Properties）包括一个数据值 -  访问器属性（Accessor Properties）：包括getter和setter的pair。  继承（Inheritance）基本概念 JavaScript只有对象，没有类和接口的概念 函数也是">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Yutong &amp; Orange">
+<meta property="og:title" content="《JavaScript高级程序设计》第六章笔记">
 <meta property="og:url" content="http://yoursite.com/2018/01/30/《JavaScript高级程序设计》第六章笔记/index.html">
 <meta property="og:site_name" content="Yutong &amp; Orange">
-<meta property="og:description" content="继承（Inheritance）基本概念 JavaScript只有对象，没有类和接口的概念 函数也是一种对象。对象的特点：原型，构造器 构造函数： new 所有对象都继承自Object原型链继承实例[内部指针] -&amp;gt; 构造函数[原型对象]12345678910111213function SuperType() &amp;#123;    this.property = true;    this.f">
+<meta property="og:description" content="介绍这一章主要讲的是在JS中的对于面向对象这一概念是如何实现的。讲到的主要内容有，对象，创建对象，和继承。 对象（Object）属性类型 数据属性（Data Properties）包括一个数据值 -  访问器属性（Accessor Properties）：包括getter和setter的pair。  继承（Inheritance）基本概念 JavaScript只有对象，没有类和接口的概念 函数也是">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-01-31T04:14:58.000Z">
+<meta property="og:updated_time" content="2018-03-07T02:51:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yutong &amp; Orange">
-<meta name="twitter:description" content="继承（Inheritance）基本概念 JavaScript只有对象，没有类和接口的概念 函数也是一种对象。对象的特点：原型，构造器 构造函数： new 所有对象都继承自Object原型链继承实例[内部指针] -&amp;gt; 构造函数[原型对象]12345678910111213function SuperType() &amp;#123;    this.property = true;    this.f">
+<meta name="twitter:title" content="《JavaScript高级程序设计》第六章笔记">
+<meta name="twitter:description" content="介绍这一章主要讲的是在JS中的对于面向对象这一概念是如何实现的。讲到的主要内容有，对象，创建对象，和继承。 对象（Object）属性类型 数据属性（Data Properties）包括一个数据值 -  访问器属性（Accessor Properties）：包括getter和setter的pair。  继承（Inheritance）基本概念 JavaScript只有对象，没有类和接口的概念 函数也是">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | Yutong & Orange</title>
+  <title>《JavaScript高级程序设计》第六章笔记 | Yutong & Orange</title>
   
 
 
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">《JavaScript高级程序设计》第六章笔记</h1>
         
 
         <div class="post-meta">
@@ -299,15 +300,20 @@
       
 
       
-        <h2 id="继承（Inheritance）"><a href="#继承（Inheritance）" class="headerlink" title="继承（Inheritance）"></a>继承（Inheritance）</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
+        <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>这一章主要讲的是在JS中的对于面向对象这一概念是如何实现的。讲到的主要内容有，对象，创建对象，和继承。</p>
+<h1 id="对象（Object）"><a href="#对象（Object）" class="headerlink" title="对象（Object）"></a>对象（Object）</h1><h2 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h2><ol>
+<li>数据属性（Data Properties）<br>包括一个数据值<br> - </li>
+<li>访问器属性（Accessor Properties）：包括getter和setter的pair。</li>
+</ol>
+<h1 id="继承（Inheritance）"><a href="#继承（Inheritance）" class="headerlink" title="继承（Inheritance）"></a>继承（Inheritance）</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
 <li>JavaScript只有对象，没有类和接口的概念</li>
 <li>函数也是一种对象。对象的特点：原型，构造器</li>
-<li>构造函数： new</li>
-<li>所有对象都继承自Object<h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3>实例[内部指针] -&gt; 构造函数[原型对象]<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.property = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">this</span>.function = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"function supertype"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</span><br><span class="line"><span class="keyword">var</span> property = instance.property <span class="comment">//true</span></span><br><span class="line"><span class="keyword">var</span> value = instance.function; <span class="comment">//"function"</span></span><br></pre></td></tr></table></figure>
+<li>构造函数：当调用一个方法的时候，我们使用了<code>new</code>关键字，便说明该函数将被当做构造函数来使用</li>
+<li>所有对象都继承自<code>Object</code>这个对象。<h2 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h2>实例[内部指针] -&gt; 构造函数[原型对象]<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.property = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">this</span>.function = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"function supertype"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</span><br><span class="line"><span class="keyword">var</span> property = instance.property <span class="comment">//true</span></span><br><span class="line"><span class="keyword">var</span> value = instance.function; <span class="comment">//"function"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>原型的方法和属性会被子类所有的instance共享。</p>
-<h3 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>原型的方法和属性会被子类所有的instance共享。</p>
+<h2 id="构造函数继承"><a href="#构造函数继承" class="headerlink" title="构造函数继承"></a>构造函数继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -322,6 +328,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
       
 
       
@@ -341,6 +353,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/15/Study Notes @07-15-18/" rel="prev" title="Study Notes @07/15/18">
+                Study Notes @07/15/18 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -417,7 +433,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -430,7 +446,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -465,7 +481,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#继承（Inheritance）"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x7EE7;&#x627F;&#xFF08;Inheritance&#xFF09;" class="headerlink" title="&#x7EE7;&#x627F;&#xFF08;Inheritance&#xFF09;"></a>&#x7EE7;&#x627F;&#xFF08;Inheritance&#xFF09;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链继承"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;" class="headerlink" title="&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;"></a>&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.2.1.</span> <span class="nav-text"><a href="#&#x7F3A;&#x70B9;" class="headerlink" title="&#x7F3A;&#x70B9;"></a>&#x7F3A;&#x70B9;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数继承"><span class="nav-number">1.3.</span> <span class="nav-text"><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;" class="headerlink" title="&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;"></a>&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象（Object）"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5BF9;&#x8C61;&#xFF08;Object&#xFF09;" class="headerlink" title="&#x5BF9;&#x8C61;&#xFF08;Object&#xFF09;"></a>&#x5BF9;&#x8C61;&#xFF08;Object&#xFF09;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性类型"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x5C5E;&#x6027;&#x7C7B;&#x578B;" class="headerlink" title="&#x5C5E;&#x6027;&#x7C7B;&#x578B;"></a>&#x5C5E;&#x6027;&#x7C7B;&#x578B;</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承（Inheritance）"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x7EE7;&#x627F;&#xFF08;Inheritance&#xFF09;" class="headerlink" title="&#x7EE7;&#x627F;&#xFF08;Inheritance&#xFF09;"></a>&#x7EE7;&#x627F;&#xFF08;Inheritance&#xFF09;</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="headerlink" title="&#x57FA;&#x672C;&#x6982;&#x5FF5;"></a>&#x57FA;&#x672C;&#x6982;&#x5FF5;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链继承"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;" class="headerlink" title="&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;"></a>&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">3.2.1.</span> <span class="nav-text"><a href="#&#x7F3A;&#x70B9;" class="headerlink" title="&#x7F3A;&#x70B9;"></a>&#x7F3A;&#x70B9;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造函数继承"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;" class="headerlink" title="&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;"></a>&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;</span></a></li></ol></li></ol></div>
             
 
           </div>
