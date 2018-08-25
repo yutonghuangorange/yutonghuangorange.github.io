@@ -229,6 +229,351 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/《JavaScript高级程序设计》第三章笔记 - 语法&数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/16/《JavaScript高级程序设计》第三章笔记 - 语法&数据类型/" itemprop="url">《JavaScript高级程序设计》第三章笔记 - 语法&数据类型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-16T21:54:47-05:00">
+                2018-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>本章主要介绍了JavaScript语言，准确来说是ECMAScript定义的一些语法基础。包括语法，关键字&amp;保留字，数据类型，操作符，语句和函数。<br>由于ECMAScript的语法和C以及其他类似C的语言的语法相似，这里在一些已经熟练掌握的知识点不会展开讨论和举例。</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><ol>
+<li>区分大小写。</li>
+<li>标识符命名规则：<ol>
+<li>以字母，_或$开头</li>
+<li>只包含字母，_，$，或者数字</li>
+<li>字母包括ASCII码和Unicode字符，但不推荐使用。</li>
+</ol>
+</li>
+<li>关键字：<br>|break   |do      |instanceof|typeof    |<br>|case    |else    |new       |var       |<br>|catch   |finally |return    |void      |<br>|continue|for     |switch    |while     |<br>|debugger|function|this      |with      |<br>|default |if      |throw     |<br>|delete  |in      |try       |</li>
+<li>保留字：<br>|abstract   |enum      |int       |short        |<br>|boolean    |export    |interface |static       |<br>|byte       |extends   |long      |super        |<br>|char       |final     |native    |synchronized |<br>|class      |float     |package   |throws       |<br>|debugger   |implements|protected |valotile     |<br>|double     |import    |public    |</li>
+<li>变量<ol>
+<li>ECMAScript是松散类型，变量可以保存任何类型的数据。</li>
+<li>已经被赋值的变量可以被重新赋予别的数据类型的值。</li>
+<li>用<code>var</code>声明的变量是局部变量。</li>
+</ol>
+</li>
+</ol>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><ol>
+<li>基本数据类型（simple data type / primitive types）：Undefined, Null, Boolean, Number and String.</li>
+<li>复杂数据类型（complex data type）：Object</li>
+<li>typeof操作符：返回值有“undefined”，“string”，“boolean”，“number”，“object”，“function”。但<code>typeof Null</code>的返回值是”object”。</li>
+</ol>
+<h2 id="Undefined"><a href="#Undefined" class="headerlink" title="Undefined"></a>Undefined</h2><ul>
+<li>只有一种值，即undefined。如果一个变量用<code>var</code>声明了且没有被赋值，将会得到值undefined。</li>
+<li>使用typeof判断没有赋值的变量和没有声明的变量时，都会返回“undefined”。所以建议每次声明变量时都赋值，就可以用typeof检测变量是否被声明。</li>
+<li>一般来说不推荐直接用</li>
+</ul>
+<h2 id="Null"><a href="#Null" class="headerlink" title="Null"></a>Null</h2><ul>
+<li>只有一种值，即null。</li>
+<li><p>Null和Undefined存在值相等的关系。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="literal">null</span> == <span class="literal">undefined</span>); <span class="comment">//return true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不同于Undefined，如果一个对象object需要被赋值为null方便日后进行进一步操作，null用于赋值是合理的。</p>
+</li>
+</ul>
+<h2 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h2><ul>
+<li>true不等于1，false不等于0。</li>
+<li>类型转换<br>| Data Type        | true             | false    |<br>| ————-    |:————-:   | —–:   |<br>|String            | non-empty string | “”       |<br>|Number            | non-zero number  | 0        |<br>|Object            | any object       | null     |<br>|Undefined         | n/a              | undefined|</li>
+</ul>
+<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><ul>
+<li>基于IEEE-754标准</li>
+<li>一般为十进制，八进制以（0）开头，十六进制以（0x）开头。</li>
+<li>小数的存储空间为整数的两倍。故而如果小数的值是整数（如1.0），或者小数点后面没有值（如1.），都会以整数的方式存储。</li>
+<li>小数的运算不应该用来做判断条件，因为比如（0.1 + 0.2）的计算结果是0.30000000000004，是IEEE-754标准的通病。因此：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="number">0.1</span>+<span class="number">0.2</span> == <span class="number">0.3</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样的代码就并不好。</p>
+<ul>
+<li>最小值（Number.MIN_VALUE）是5e-324，最大值（Number.MAX_VALUE）是1.7976931348623157e308。</li>
+<li>NaN表示Not a Number。比如 x / 0的运算会返回NaN。但是不会报错阻止后续程序的运行。NaN不等于任何值，包括自身。</li>
+<li>isNaN()方法被调用时，会尝试将参数转化为数字，成功则返回false，否则返回true。</li>
+<li>类型转换</li>
+</ul>
+<ol>
+<li>Number()可以使用在任何数据类型上。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">Number</span>(<span class="literal">null</span>); <span class="comment">// return 0</span></span><br><span class="line"><span class="keyword">var</span> num2 = <span class="built_in">Number</span>(<span class="literal">undefined</span>); <span class="comment">//return NaN</span></span><br><span class="line"><span class="keyword">var</span> num3 = <span class="built_in">Number</span>(<span class="string">""</span>); <span class="comment">// return 0</span></span><br><span class="line"><span class="keyword">var</span> num4 = <span class="built_in">Number</span>(<span class="string">"    "</span>); <span class="comment">// return 0;</span></span><br><span class="line"><span class="keyword">var</span> num4 = <span class="built_in">Number</span>(<span class="string">"0001"</span>); <span class="comment">// return 1;</span></span><br><span class="line"><span class="keyword">var</span> num5 = <span class="built_in">Number</span>(<span class="literal">true</span>); <span class="comment">// return 1;</span></span><br><span class="line"><span class="keyword">var</span> num6 = <span class="built_in">Number</span>(<span class="string">"hello world"</span>); <span class="comment">// return NaN</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>parseInt()用来判断String可否被转化为整数。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">parseInt</span>(<span class="string">"12.3"</span>); <span class="comment">// return 12</span></span><br><span class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseInt</span>(<span class="string">"123abc"</span>); <span class="comment">// return 123</span></span><br><span class="line"><span class="keyword">var</span> num3 = <span class="built_in">parseInt</span>(<span class="string">""</span>); <span class="comment">// return NaN</span></span><br><span class="line"><span class="keyword">var</span> num4 = <span class="built_in">parseInt</span>(<span class="string">"0001"</span>); <span class="comment">// return 1;</span></span><br><span class="line"><span class="keyword">var</span> num5 = <span class="built_in">parseInt</span>(<span class="string">"0x3"</span>); <span class="comment">// return 0;</span></span><br><span class="line"><span class="keyword">var</span> num6 = <span class="built_in">parseInt</span>(<span class="string">"hello world"</span>); <span class="comment">// return NaN</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>parseFloat()方法用来判断String可否被转化为小数。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num1 = <span class="built_in">parseFloat</span>(<span class="string">"12.3.3"</span>); <span class="comment">// return 12.3</span></span><br><span class="line"><span class="keyword">var</span> num2 = <span class="built_in">parseFloat</span>(<span class="string">"123abc"</span>); <span class="comment">// return 123 - 整数</span></span><br><span class="line"><span class="keyword">var</span> num3 = <span class="built_in">parseFloat</span>(<span class="string">""</span>); <span class="comment">// return NaN</span></span><br><span class="line"><span class="keyword">var</span> num4 = <span class="built_in">parseFloat</span>(<span class="string">"0001.2"</span>); <span class="comment">// return 1.2;</span></span><br><span class="line"><span class="keyword">var</span> num5 = <span class="built_in">parseFloat</span>(<span class="string">"0x3"</span>); <span class="comment">// return 0;</span></span><br><span class="line"><span class="keyword">var</span> num6 = <span class="built_in">parseFloat</span>(<span class="string">"hello world"</span>); <span class="comment">// return NaN</span></span><br></pre></td></tr></table></figure>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ul>
+<li>String是不可改变的，字符串生成后即在内存中存储，如果字符串变量被重新复制，将会为新字符串开辟存储空间，然后销毁旧字符串。</li>
+<li>toString()方法适用于numbers, Boolean, objects和strings。</li>
+</ul>
+<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><p>对象主要有以下几个属性和方法：</p>
+<ul>
+<li>constructor：构造器，用来生成对象实例。</li>
+<li>hasOwnProperty(propertyName)：判断对象是否有特定属性，参数需是string。</li>
+<li>isPrototypeOf(object)：判断对象的原型是否是另一个对象。</li>
+<li>propertyIsEnumerable(propertyName)：判断一个属性是否能够有for-in语句。</li>
+<li>toLocaleString()：返回一个字符串代表对象在执行环境中的表示。</li>
+<li>toString()：返回一个字符串代表对象。</li>
+<li>valueOf()：返回一个代表对象值得string，number或者Boolean。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第二章笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yutong Huang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yutong & Orange">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/14/《JavaScript高级程序设计》第二章笔记/" itemprop="url">《JavaScript高级程序设计》第二章笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-14T22:59:18-05:00">
+                2018-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>第二章主要介绍了如何在HTML文件中引入JavaScript代码。</p>
+<h1 id="lt-script-gt"><a href="#lt-script-gt" class="headerlink" title="&lt;script&gt;"></a><code>&lt;script&gt;</code></h1><p><code>&lt;script&gt;</code>是在HTML文件中加载JavaScript代码的主要方法，主要有以下六个属性。</p>
+<ol>
+<li><p><code>async</code>：optional。表示立即开始加载脚本，但不影响后面代码的运行。只针对external src。但是多个<code>async</code>的文件被解析的顺序是不被保证的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>charset</code>：optional。表示src加载的脚本使用的字符集，经常被忽略，不常用。</p>
+</li>
+<li><p><code>defer</code>：optional。表示脚本加载后会等到页面加载完再运行。只针对external src。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span> <span class="attr">src</span>=<span class="string">"example.js"</span>&gt;</span><span class="undefined"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>language</code>：已废弃。</p>
+</li>
+<li><code>src</code>：引用的external src的路径。</li>
+<li><code>type</code>：替代了<code>language</code>。表示加载的脚本的内容类型（MIME类型）。一般设置为<code>text/javascript</code>，不设置时默认也是<code>text/javascript</code>。但是服务器传送JavaScript文件时常用的MIME类型其实是<code>application/x-javascript</code>，在<code>type</code>中设置该值又会被忽略。我的理解是这个属性的设置要不不够准确要不不被理睬。<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2></li>
+<li>在<code>&lt;script&gt;</code>标签里面不可以出现任何<code>&lt;/script&gt;</code>字符串，否则将被编译为script的结束。<br>例如：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    alert("</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>");</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>是一段不会被正常解析的代码。</p>
+<ol>
+<li>当<code>&lt;script&gt;</code>里面又有external的src属性值，又有internal的JavaScript代码，会加载外部文件，内在代码会被忽略。</li>
+</ol>
+<h1 id="lt-noscript-gt"><a href="#lt-noscript-gt" class="headerlink" title="&lt;noscript&gt;"></a><code>&lt;noscript&gt;</code></h1><p><code>&lt;noscript&gt;</code>tag可以在HTML文档中，除了<code>&lt;script&gt;</code>tag之外的任何地方，意思是说在<code>&lt;noscript&gt;</code>tag里面的东西，只有在满足以下两种条件任意一种的情况下才会被加载。</p>
+<ol>
+<li>浏览器不支持脚本。</li>
+<li>浏览器的脚本功能被禁用。<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>本页面需要script功能来加载。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/《JavaScript高级程序设计》第一章笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -861,7 +1206,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
