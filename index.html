@@ -421,10 +421,10 @@
           
             <p>Today’s notes is for the Section 7, Lecture 72-88 of this <a href="https://www.udemy.com/advanced-css-and-sass/learn/v4/content" target="_blank" rel="noopener">udemy course</a>.</p>
 <h1 id="Trillo-Project"><a href="#Trillo-Project" class="headerlink" title="Trillo Project"></a>Trillo Project</h1><p>The project is a assignment / course content for the Udemy course. It fully implements the flexbox layout into everywhere of this webpage, meanwhile introduces some modern and cool CSS effects. The notes taken will focus more on the tricks used while building the project.</p>
-<p><img src="/images/cssstudynotes/section7lecture88.gif" alt="Screenshots"></p>
+<p><img src="/images/cssstudynotes/section7section88.gif" alt="Screenshots"></p>
 <h2 id="Use-SVG-library"><a href="#Use-SVG-library" class="headerlink" title="Use SVG library"></a>Use SVG library</h2><p>Use SVG other than img can be benefitial in a lot of ways, it’s a more safe way to have image showing independentally from the network access, the file has to be load is much lighter, the icon / shape itself can be much more flexibly styled. </p>
 <p>First, select the icons from <a href="https://icomoon.io/" target="_blank" rel="noopener">icomoon</a> website, or upload your artworks. Then choose download SVG to get the zip file. </p>
-<p><img src="imges/cssstudynotes/section7lecture88svg.png" alt="Screenshots"></p>
+<p><img src="/images/cssstudynotes/section7lecture88svg.png" alt="Screenshots"></p>
 <p>Then get the <code>symbol-defs.svg</code> file in the folder, which can be used as the library contains all the icons downloaded. In the code directly use:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"img/symbol-defs.svg#icon-magnifying-glass"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>The name(like <code>icon-magnifying-glass</code>) for each icon you selected can be looked up in the demo html file included in the folder as well.</p>
